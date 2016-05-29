@@ -171,7 +171,7 @@ void testVertexTransform(Vector4 vertex[], int n){
 //    //透视除法
     for (int i = 0; i < n; i++) {
         vertex[i] = multiply(&vertex[i], &M);
-        w = vertex[i].w;
+        w = vertex[i].w;//w = -z
         vertex[i].x = vertex[i].x / w;
         vertex[i].y = vertex[i].y / w;
 //        vertex[i].z = vertex[i].z / w;

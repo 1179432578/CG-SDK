@@ -7,7 +7,6 @@
 //
 
 #include "LayerAndMaskInformationSection.h"
-#include "print.h"
 
 void parseLayerAndMaskInformationSection(LayerAndMaskInformationSection *layerAndMaskInfo, MutableData *md){
     layerAndMaskInfo->lengthOfLayerAndMaskInformationSection = md->parseInt();
@@ -167,7 +166,7 @@ void parseLayerAndMaskInformationSection(LayerAndMaskInformationSection *layerAn
            
             int size = (layerRecord->bottomOfLayer - layerRecord->topOfLayer) * (layerRecord->rightOfLayer - layerRecord->leftOfLayer);
             printf("Channel image data size:%d\n", size);
-            printChar(layerRecord->layerName, layerRecord->layerNameLength, "layerRecord->layerName");
+//            printChar(layerRecord->layerName, layerRecord->layerNameLength, "layerRecord->layerName");
             
             md->skip(layerRecord->lengthOfChannelData[0] + layerRecord->lengthOfChannelData[1] +
                      layerRecord->lengthOfChannelData[2] + layerRecord->lengthOfChannelData[3]);

@@ -23,12 +23,6 @@
 #include "LPsdParser.h"
 
 void draw(){
-//    Vector3 a[8] = {Vector3(-0.9, 0.9, 0), Vector3(0.9, 0.9, 0), Vector3(0.9, -0.9, 0),
-//        Vector3(0.5, -0.9f, 0), Vector3(0.5f, 0.0f, 0.0f), Vector3(-0.5f, 0.0f, 0.0f), Vector3(-0.5f, -0.9f, 0.0f),
-//                    Vector3(-0.9, -0.9, 0)};
-    
-    //z当前只能是0，因为现在是手动指定的面的法向量(0, 0, 1)
-    int n = 5;
     //顶点数组
     Vector4 vertex[8] = {Vector4{-9, 9, -12, 1}, Vector4{9, 9, -12, 1}, Vector4{9, -9, -12, 1}, Vector4{-9, -9, -12, 1},
         Vector4{9, 9, -30, 1}, Vector4{9, -9, -30, 1}, Vector4{-9, -9, -30, 1}, Vector4{-9, 9, -30, 1}};
@@ -48,20 +42,12 @@ void draw(){
         //右面
         1,2,5, 1,4,5
     };
-    Vector4 b[5] = {Vector4{-9, 9,  -30.0f, 1}, Vector4{9, 9, -30.0, 1.0}, Vector4{9.0f, -9.0f, -30.0f, 1.0f},
-                    Vector4{9, 9,  -12.0f, 1}, Vector4{9, -9,  -12.0f, 1}};
-//    int n = 3;
-//    Vector4 b[3] = {Vector4{9, 9, -30.0, 1.0}, Vector4{9.0f, -9.0f, -30.0f, 1.0f},
-//        Vector4{9, 9,  -12.0f, 1}};
 
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glColor3f(0, 1, 1);
     
     testVertexTransform(vertex, 8);
-//    raster(a, sizeof(a) / sizeof(Vector3), 480, 360);
-//    
-//    drawPolygon(b, sizeof(b) / sizeof(Vector3));
     glBegin(GL_TRIANGLES);
     for (int i = 0; i < 36; i++) {
         glVertex2f(vertex[index[i]].x, vertex[index[i]].y);
@@ -72,16 +58,20 @@ void draw(){
 }
 
 int main(int argc, const char * argv[]) {
-//    glutInit(&argc, (char **)argv);
-//    glutInitDisplayMode (GLUT_SINGLE | GLUT_RGBA);
-//    glutInitWindowSize (480, 360);
-//    glutInitWindowPosition (1920 / 2, 1080 / 2);
-//    glutCreateWindow ("GUI");
-//    glutDisplayFunc(draw);
-//    glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-//    glutMainLoop();
+    glutInit(&argc, (char **)argv);
+    glutInitDisplayMode (GLUT_SINGLE | GLUT_RGBA);
+    glutInitWindowSize (480, 360);
+    glutInitWindowPosition (1920 / 2, 1080 / 2);
+    glutCreateWindow ("GUI");
+    glutDisplayFunc(draw);
+    glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+    glutMainLoop();
     
-    testPsdParser();
+//    glPushMatrix();
+//    glLoadIdentity();
+//    glPopMatrix();
+//    glMatrixMode(<#GLenum mode#>);
+//    testPsdParser();
 
     return 0;
 }

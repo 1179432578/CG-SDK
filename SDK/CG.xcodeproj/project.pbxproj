@@ -7,29 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		29E5E2191CF45675002C3CD0 /* LPsdParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 29E5E2161CF45675002C3CD0 /* LPsdParser.cpp */; };
-		29E5E21C1CF45809002C3CD0 /* FileHeaderSection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 29E5E21B1CF45809002C3CD0 /* FileHeaderSection.cpp */; };
-		29E5E21F1CF45A89002C3CD0 /* ColorModeDataSection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 29E5E21D1CF45A89002C3CD0 /* ColorModeDataSection.cpp */; };
-		29E5E2251CF45D25002C3CD0 /* ImageResourcesSection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 29E5E2231CF45D25002C3CD0 /* ImageResourcesSection.cpp */; };
-		29E5E2281CF46269002C3CD0 /* LayerAndMaskInformationSection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 29E5E2261CF46269002C3CD0 /* LayerAndMaskInformationSection.cpp */; };
-		29F46DFF1CF3FEA900488ED4 /* print.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 29F46DFD1CF3FEA900488ED4 /* print.cpp */; };
-		F62471A51CDA418000695231 /* Vector3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F62471A31CDA418000695231 /* Vector3.cpp */; };
-		F62471A91CDA492A00695231 /* ray_polygon_intersection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F62471A71CDA492A00695231 /* ray_polygon_intersection.cpp */; };
-		F6488CE91CE4BA560008C9DE /* newRaster.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6488CE71CE4BA560008C9DE /* newRaster.cpp */; };
-		F64F68021CC92AED00450825 /* LBitmap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F64F68001CC92AED00450825 /* LBitmap.cpp */; };
 		F64F68061CC92AF400450825 /* 1000023351375.bmp in Resources */ = {isa = PBXBuildFile; fileRef = F64F68041CC92AF400450825 /* 1000023351375.bmp */; };
 		F64F68071CC92AF400450825 /* data in Resources */ = {isa = PBXBuildFile; fileRef = F64F68051CC92AF400450825 /* data */; };
-		F65632AD1CDF741300E37C1C /* Matrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F65632AB1CDF741300E37C1C /* Matrix.cpp */; };
-		F65632B01CDF7F2F00E37C1C /* raster.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F65632AE1CDF7F2F00E37C1C /* raster.cpp */; };
-		F657A2DC1CE84ED80000AC3E /* matrix_transform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F657A2DA1CE84ED80000AC3E /* matrix_transform.cpp */; };
-		F677CA211CCBCC1B00E5265D /* HashTable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F677CA1F1CCBCC1B00E5265D /* HashTable.cpp */; };
-		F68840E21CD0F98500304589 /* Draw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F68840E01CD0F98500304589 /* Draw.cpp */; };
+		F65E779C1CFB3D1400B2F7AA /* CCDictionary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F65E77961CFB3D1400B2F7AA /* CCDictionary.cpp */; };
+		F65E779D1CFB3D1400B2F7AA /* HashTable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F65E77981CFB3D1400B2F7AA /* HashTable.cpp */; };
+		F65E779E1CFB3D1400B2F7AA /* MutableData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F65E779A1CFB3D1400B2F7AA /* MutableData.cpp */; };
+		F65E77A41CFB3D1E00B2F7AA /* Draw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F65E77A01CFB3D1E00B2F7AA /* Draw.cpp */; };
+		F65E77A51CFB3D1E00B2F7AA /* Window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F65E77A21CFB3D1E00B2F7AA /* Window.cpp */; };
+		F65E77B51CFB3D2A00B2F7AA /* LBitmap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F65E77A71CFB3D2A00B2F7AA /* LBitmap.cpp */; };
+		F65E77B61CFB3D2A00B2F7AA /* ColorModeDataSection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F65E77AA1CFB3D2A00B2F7AA /* ColorModeDataSection.cpp */; };
+		F65E77B71CFB3D2A00B2F7AA /* FileHeaderSection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F65E77AC1CFB3D2A00B2F7AA /* FileHeaderSection.cpp */; };
+		F65E77B81CFB3D2A00B2F7AA /* ImageResourcesSection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F65E77AE1CFB3D2A00B2F7AA /* ImageResourcesSection.cpp */; };
+		F65E77B91CFB3D2A00B2F7AA /* LayerAndMaskInformationSection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F65E77B01CFB3D2A00B2F7AA /* LayerAndMaskInformationSection.cpp */; };
+		F65E77BA1CFB3D2A00B2F7AA /* LPsdParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F65E77B21CFB3D2A00B2F7AA /* LPsdParser.cpp */; };
+		F65E77C81CFB3D3900B2F7AA /* Matrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F65E77BC1CFB3D3900B2F7AA /* Matrix.cpp */; };
+		F65E77C91CFB3D3900B2F7AA /* matrix_transform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F65E77BE1CFB3D3900B2F7AA /* matrix_transform.cpp */; };
+		F65E77CA1CFB3D3900B2F7AA /* newRaster.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F65E77C01CFB3D3900B2F7AA /* newRaster.cpp */; };
+		F65E77CB1CFB3D3900B2F7AA /* raster.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F65E77C21CFB3D3900B2F7AA /* raster.cpp */; };
+		F65E77CC1CFB3D3900B2F7AA /* ray_polygon_intersection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F65E77C41CFB3D3900B2F7AA /* ray_polygon_intersection.cpp */; };
+		F65E77CD1CFB3D3900B2F7AA /* Vector3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F65E77C61CFB3D3900B2F7AA /* Vector3.cpp */; };
+		F65E77CF1CFB3D4800B2F7AA /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F65E77CE1CFB3D4800B2F7AA /* main.cpp */; };
 		F68840E81CD0FFC300304589 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F68840E71CD0FFC300304589 /* OpenGL.framework */; };
 		F68840EA1CD0FFD400304589 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F68840E91CD0FFD400304589 /* GLUT.framework */; };
-		F68840EE1CD107DA00304589 /* Window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F68840EC1CD107DA00304589 /* Window.cpp */; };
-		F6D53ECA1CCFAE4F00F5EFC1 /* CCDictionary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6D53EC81CCFAE4F00F5EFC1 /* CCDictionary.cpp */; };
-		F6E343E61CC68ABD0078E638 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6E343E51CC68ABD0078E638 /* main.cpp */; };
-		F6E343F01CC68D7D0078E638 /* MutableData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6E343EE1CC68D7D0078E638 /* MutableData.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -45,51 +44,47 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		29E5E2121CF431A3002C3CD0 /* dress up整理（完成）.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = "dress up整理（完成）.psd"; sourceTree = "<group>"; };
-		29E5E2161CF45675002C3CD0 /* LPsdParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LPsdParser.cpp; sourceTree = "<group>"; };
-		29E5E2171CF45675002C3CD0 /* LPsdParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LPsdParser.h; sourceTree = "<group>"; };
-		29E5E2181CF45675002C3CD0 /* psdinclude.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = psdinclude.h; sourceTree = "<group>"; };
-		29E5E21A1CF4569C002C3CD0 /* FileHeaderSection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FileHeaderSection.h; sourceTree = "<group>"; };
-		29E5E21B1CF45809002C3CD0 /* FileHeaderSection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FileHeaderSection.cpp; sourceTree = "<group>"; };
-		29E5E21D1CF45A89002C3CD0 /* ColorModeDataSection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ColorModeDataSection.cpp; sourceTree = "<group>"; };
-		29E5E21E1CF45A89002C3CD0 /* ColorModeDataSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorModeDataSection.h; sourceTree = "<group>"; };
-		29E5E2231CF45D25002C3CD0 /* ImageResourcesSection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ImageResourcesSection.cpp; sourceTree = "<group>"; };
-		29E5E2241CF45D25002C3CD0 /* ImageResourcesSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageResourcesSection.h; sourceTree = "<group>"; };
-		29E5E2261CF46269002C3CD0 /* LayerAndMaskInformationSection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LayerAndMaskInformationSection.cpp; sourceTree = "<group>"; };
-		29E5E2271CF46269002C3CD0 /* LayerAndMaskInformationSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LayerAndMaskInformationSection.h; sourceTree = "<group>"; };
-		29F46DFB1CF3EFF000488ED4 /* dress主角(完成).psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = "dress主角(完成).psd"; sourceTree = "<group>"; };
-		29F46DFD1CF3FEA900488ED4 /* print.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = print.cpp; path = LPrint/print.cpp; sourceTree = "<group>"; };
-		29F46DFE1CF3FEA900488ED4 /* print.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = print.h; path = LPrint/print.h; sourceTree = "<group>"; };
-		F62471A31CDA418000695231 /* Vector3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Vector3.cpp; path = cg/Vector3.cpp; sourceTree = "<group>"; };
-		F62471A41CDA418000695231 /* Vector3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Vector3.h; path = cg/Vector3.h; sourceTree = "<group>"; };
-		F62471A71CDA492A00695231 /* ray_polygon_intersection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ray_polygon_intersection.cpp; path = cg/ray_polygon_intersection.cpp; sourceTree = "<group>"; };
-		F62471A81CDA492A00695231 /* ray_polygon_intersection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ray_polygon_intersection.h; path = cg/ray_polygon_intersection.h; sourceTree = "<group>"; };
-		F6488CE71CE4BA560008C9DE /* newRaster.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = newRaster.cpp; path = cg/newRaster.cpp; sourceTree = "<group>"; };
-		F6488CE81CE4BA560008C9DE /* newRaster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = newRaster.h; path = cg/newRaster.h; sourceTree = "<group>"; };
-		F64F68001CC92AED00450825 /* LBitmap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LBitmap.cpp; sourceTree = "<group>"; };
-		F64F68011CC92AED00450825 /* LBitmap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBitmap.h; sourceTree = "<group>"; };
 		F64F68041CC92AF400450825 /* 1000023351375.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = 1000023351375.bmp; sourceTree = "<group>"; };
 		F64F68051CC92AF400450825 /* data */ = {isa = PBXFileReference; lastKnownFileType = file; path = data; sourceTree = "<group>"; };
-		F65632AB1CDF741300E37C1C /* Matrix.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Matrix.cpp; path = cg/Matrix.cpp; sourceTree = "<group>"; };
-		F65632AC1CDF741300E37C1C /* Matrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Matrix.h; path = cg/Matrix.h; sourceTree = "<group>"; };
-		F65632AE1CDF7F2F00E37C1C /* raster.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = raster.cpp; path = cg/raster.cpp; sourceTree = "<group>"; };
-		F65632AF1CDF7F2F00E37C1C /* raster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = raster.h; path = cg/raster.h; sourceTree = "<group>"; };
-		F657A2DA1CE84ED80000AC3E /* matrix_transform.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = matrix_transform.cpp; path = cg/matrix_transform.cpp; sourceTree = "<group>"; };
-		F657A2DB1CE84ED80000AC3E /* matrix_transform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = matrix_transform.h; path = cg/matrix_transform.h; sourceTree = "<group>"; };
-		F677CA1F1CCBCC1B00E5265D /* HashTable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HashTable.cpp; path = data_types/HashTable.cpp; sourceTree = "<group>"; };
-		F677CA201CCBCC1B00E5265D /* HashTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HashTable.h; path = data_types/HashTable.h; sourceTree = "<group>"; };
-		F68840E01CD0F98500304589 /* Draw.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Draw.cpp; path = interface/Draw.cpp; sourceTree = "<group>"; };
-		F68840E11CD0F98500304589 /* Draw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Draw.h; path = interface/Draw.h; sourceTree = "<group>"; };
+		F65E77961CFB3D1400B2F7AA /* CCDictionary.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCDictionary.cpp; sourceTree = "<group>"; };
+		F65E77971CFB3D1400B2F7AA /* CCDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCDictionary.h; sourceTree = "<group>"; };
+		F65E77981CFB3D1400B2F7AA /* HashTable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HashTable.cpp; sourceTree = "<group>"; };
+		F65E77991CFB3D1400B2F7AA /* HashTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HashTable.h; sourceTree = "<group>"; };
+		F65E779A1CFB3D1400B2F7AA /* MutableData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MutableData.cpp; sourceTree = "<group>"; };
+		F65E779B1CFB3D1400B2F7AA /* MutableData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MutableData.h; sourceTree = "<group>"; };
+		F65E77A01CFB3D1E00B2F7AA /* Draw.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Draw.cpp; sourceTree = "<group>"; };
+		F65E77A11CFB3D1E00B2F7AA /* Draw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Draw.h; sourceTree = "<group>"; };
+		F65E77A21CFB3D1E00B2F7AA /* Window.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Window.cpp; sourceTree = "<group>"; };
+		F65E77A31CFB3D1E00B2F7AA /* Window.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Window.h; sourceTree = "<group>"; };
+		F65E77A71CFB3D2A00B2F7AA /* LBitmap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LBitmap.cpp; sourceTree = "<group>"; };
+		F65E77A81CFB3D2A00B2F7AA /* LBitmap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBitmap.h; sourceTree = "<group>"; };
+		F65E77AA1CFB3D2A00B2F7AA /* ColorModeDataSection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ColorModeDataSection.cpp; sourceTree = "<group>"; };
+		F65E77AB1CFB3D2A00B2F7AA /* ColorModeDataSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorModeDataSection.h; sourceTree = "<group>"; };
+		F65E77AC1CFB3D2A00B2F7AA /* FileHeaderSection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FileHeaderSection.cpp; sourceTree = "<group>"; };
+		F65E77AD1CFB3D2A00B2F7AA /* FileHeaderSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileHeaderSection.h; sourceTree = "<group>"; };
+		F65E77AE1CFB3D2A00B2F7AA /* ImageResourcesSection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ImageResourcesSection.cpp; sourceTree = "<group>"; };
+		F65E77AF1CFB3D2A00B2F7AA /* ImageResourcesSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageResourcesSection.h; sourceTree = "<group>"; };
+		F65E77B01CFB3D2A00B2F7AA /* LayerAndMaskInformationSection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LayerAndMaskInformationSection.cpp; sourceTree = "<group>"; };
+		F65E77B11CFB3D2A00B2F7AA /* LayerAndMaskInformationSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LayerAndMaskInformationSection.h; sourceTree = "<group>"; };
+		F65E77B21CFB3D2A00B2F7AA /* LPsdParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LPsdParser.cpp; sourceTree = "<group>"; };
+		F65E77B31CFB3D2A00B2F7AA /* LPsdParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LPsdParser.h; sourceTree = "<group>"; };
+		F65E77B41CFB3D2A00B2F7AA /* psdinclude.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = psdinclude.h; sourceTree = "<group>"; };
+		F65E77BC1CFB3D3900B2F7AA /* Matrix.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Matrix.cpp; sourceTree = "<group>"; };
+		F65E77BD1CFB3D3900B2F7AA /* Matrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Matrix.h; sourceTree = "<group>"; };
+		F65E77BE1CFB3D3900B2F7AA /* matrix_transform.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = matrix_transform.cpp; sourceTree = "<group>"; };
+		F65E77BF1CFB3D3900B2F7AA /* matrix_transform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = matrix_transform.h; sourceTree = "<group>"; };
+		F65E77C01CFB3D3900B2F7AA /* newRaster.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = newRaster.cpp; sourceTree = "<group>"; };
+		F65E77C11CFB3D3900B2F7AA /* newRaster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = newRaster.h; sourceTree = "<group>"; };
+		F65E77C21CFB3D3900B2F7AA /* raster.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = raster.cpp; sourceTree = "<group>"; };
+		F65E77C31CFB3D3900B2F7AA /* raster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = raster.h; sourceTree = "<group>"; };
+		F65E77C41CFB3D3900B2F7AA /* ray_polygon_intersection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ray_polygon_intersection.cpp; sourceTree = "<group>"; };
+		F65E77C51CFB3D3900B2F7AA /* ray_polygon_intersection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ray_polygon_intersection.h; sourceTree = "<group>"; };
+		F65E77C61CFB3D3900B2F7AA /* Vector3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vector3.cpp; sourceTree = "<group>"; };
+		F65E77C71CFB3D3900B2F7AA /* Vector3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vector3.h; sourceTree = "<group>"; };
+		F65E77CE1CFB3D4800B2F7AA /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = ADT/GUI/image_file_parse/Raster/main.cpp; sourceTree = "<group>"; };
 		F68840E71CD0FFC300304589 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		F68840E91CD0FFD400304589 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
-		F68840EC1CD107DA00304589 /* Window.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Window.cpp; path = window/Window.cpp; sourceTree = "<group>"; };
-		F68840ED1CD107DA00304589 /* Window.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Window.h; path = window/Window.h; sourceTree = "<group>"; };
-		F6D53EC81CCFAE4F00F5EFC1 /* CCDictionary.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CCDictionary.cpp; path = data_types/CCDictionary.cpp; sourceTree = "<group>"; };
-		F6D53EC91CCFAE4F00F5EFC1 /* CCDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCDictionary.h; path = data_types/CCDictionary.h; sourceTree = "<group>"; };
 		F6E343E21CC68ABD0078E638 /* CG */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CG; sourceTree = BUILT_PRODUCTS_DIR; };
-		F6E343E51CC68ABD0078E638 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = LImage/main.cpp; sourceTree = "<group>"; };
-		F6E343EE1CC68D7D0078E638 /* MutableData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MutableData.cpp; path = data_types/MutableData.cpp; sourceTree = "<group>"; };
-		F6E343EF1CC68D7D0078E638 /* MutableData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MutableData.h; path = data_types/MutableData.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,90 +100,87 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		29E5E2151CF45675002C3CD0 /* psd */ = {
-			isa = PBXGroup;
-			children = (
-				29E5E2161CF45675002C3CD0 /* LPsdParser.cpp */,
-				29E5E2171CF45675002C3CD0 /* LPsdParser.h */,
-				29E5E2181CF45675002C3CD0 /* psdinclude.h */,
-				29E5E21A1CF4569C002C3CD0 /* FileHeaderSection.h */,
-				29E5E21B1CF45809002C3CD0 /* FileHeaderSection.cpp */,
-				29E5E21E1CF45A89002C3CD0 /* ColorModeDataSection.h */,
-				29E5E21D1CF45A89002C3CD0 /* ColorModeDataSection.cpp */,
-				29E5E2241CF45D25002C3CD0 /* ImageResourcesSection.h */,
-				29E5E2231CF45D25002C3CD0 /* ImageResourcesSection.cpp */,
-				29E5E2271CF46269002C3CD0 /* LayerAndMaskInformationSection.h */,
-				29E5E2261CF46269002C3CD0 /* LayerAndMaskInformationSection.cpp */,
-			);
-			path = psd;
-			sourceTree = "<group>";
-		};
-		29F46DFC1CF3FE8700488ED4 /* print */ = {
-			isa = PBXGroup;
-			children = (
-				29F46DFD1CF3FEA900488ED4 /* print.cpp */,
-				29F46DFE1CF3FEA900488ED4 /* print.h */,
-			);
-			name = print;
-			sourceTree = "<group>";
-		};
-		F62471A11CDA412200695231 /* Raster */ = {
-			isa = PBXGroup;
-			children = (
-				F62471A31CDA418000695231 /* Vector3.cpp */,
-				F62471A41CDA418000695231 /* Vector3.h */,
-				F65632AB1CDF741300E37C1C /* Matrix.cpp */,
-				F65632AC1CDF741300E37C1C /* Matrix.h */,
-				F62471A71CDA492A00695231 /* ray_polygon_intersection.cpp */,
-				F62471A81CDA492A00695231 /* ray_polygon_intersection.h */,
-				F65632AE1CDF7F2F00E37C1C /* raster.cpp */,
-				F65632AF1CDF7F2F00E37C1C /* raster.h */,
-				F6488CE71CE4BA560008C9DE /* newRaster.cpp */,
-				F6488CE81CE4BA560008C9DE /* newRaster.h */,
-				F657A2DA1CE84ED80000AC3E /* matrix_transform.cpp */,
-				F657A2DB1CE84ED80000AC3E /* matrix_transform.h */,
-			);
-			name = Raster;
-			sourceTree = "<group>";
-		};
-		F64F67FF1CC92AED00450825 /* file_parse */ = {
-			isa = PBXGroup;
-			children = (
-				29E5E2151CF45675002C3CD0 /* psd */,
-				F64F68001CC92AED00450825 /* LBitmap.cpp */,
-				F64F68011CC92AED00450825 /* LBitmap.h */,
-			);
-			name = file_parse;
-			path = image;
-			sourceTree = "<group>";
-		};
 		F64F68031CC92AF400450825 /* resource */ = {
 			isa = PBXGroup;
 			children = (
 				F64F68041CC92AF400450825 /* 1000023351375.bmp */,
-				29E5E2121CF431A3002C3CD0 /* dress up整理（完成）.psd */,
-				29F46DFB1CF3EFF000488ED4 /* dress主角(完成).psd */,
 				F64F68051CC92AF400450825 /* data */,
 			);
 			path = resource;
 			sourceTree = "<group>";
 		};
-		F68840DF1CD0F93000304589 /* GUI */ = {
+		F65E77951CFB3D1400B2F7AA /* ADT */ = {
 			isa = PBXGroup;
 			children = (
-				F68840E01CD0F98500304589 /* Draw.cpp */,
-				F68840E11CD0F98500304589 /* Draw.h */,
+				F65E77961CFB3D1400B2F7AA /* CCDictionary.cpp */,
+				F65E77971CFB3D1400B2F7AA /* CCDictionary.h */,
+				F65E77981CFB3D1400B2F7AA /* HashTable.cpp */,
+				F65E77991CFB3D1400B2F7AA /* HashTable.h */,
+				F65E779A1CFB3D1400B2F7AA /* MutableData.cpp */,
+				F65E779B1CFB3D1400B2F7AA /* MutableData.h */,
 			);
-			name = GUI;
+			path = ADT;
 			sourceTree = "<group>";
 		};
-		F68840EB1CD1079700304589 /* Window */ = {
+		F65E779F1CFB3D1E00B2F7AA /* GUI */ = {
 			isa = PBXGroup;
 			children = (
-				F68840EC1CD107DA00304589 /* Window.cpp */,
-				F68840ED1CD107DA00304589 /* Window.h */,
+				F65E77A01CFB3D1E00B2F7AA /* Draw.cpp */,
+				F65E77A11CFB3D1E00B2F7AA /* Draw.h */,
+				F65E77A21CFB3D1E00B2F7AA /* Window.cpp */,
+				F65E77A31CFB3D1E00B2F7AA /* Window.h */,
 			);
-			name = Window;
+			name = GUI;
+			path = ADT/GUI;
+			sourceTree = "<group>";
+		};
+		F65E77A61CFB3D2A00B2F7AA /* image_file_parse */ = {
+			isa = PBXGroup;
+			children = (
+				F65E77A71CFB3D2A00B2F7AA /* LBitmap.cpp */,
+				F65E77A81CFB3D2A00B2F7AA /* LBitmap.h */,
+				F65E77A91CFB3D2A00B2F7AA /* psd */,
+			);
+			name = image_file_parse;
+			path = ADT/GUI/image_file_parse;
+			sourceTree = "<group>";
+		};
+		F65E77A91CFB3D2A00B2F7AA /* psd */ = {
+			isa = PBXGroup;
+			children = (
+				F65E77AA1CFB3D2A00B2F7AA /* ColorModeDataSection.cpp */,
+				F65E77AB1CFB3D2A00B2F7AA /* ColorModeDataSection.h */,
+				F65E77AC1CFB3D2A00B2F7AA /* FileHeaderSection.cpp */,
+				F65E77AD1CFB3D2A00B2F7AA /* FileHeaderSection.h */,
+				F65E77AE1CFB3D2A00B2F7AA /* ImageResourcesSection.cpp */,
+				F65E77AF1CFB3D2A00B2F7AA /* ImageResourcesSection.h */,
+				F65E77B01CFB3D2A00B2F7AA /* LayerAndMaskInformationSection.cpp */,
+				F65E77B11CFB3D2A00B2F7AA /* LayerAndMaskInformationSection.h */,
+				F65E77B21CFB3D2A00B2F7AA /* LPsdParser.cpp */,
+				F65E77B31CFB3D2A00B2F7AA /* LPsdParser.h */,
+				F65E77B41CFB3D2A00B2F7AA /* psdinclude.h */,
+			);
+			path = psd;
+			sourceTree = "<group>";
+		};
+		F65E77BB1CFB3D3900B2F7AA /* Raster */ = {
+			isa = PBXGroup;
+			children = (
+				F65E77BC1CFB3D3900B2F7AA /* Matrix.cpp */,
+				F65E77BD1CFB3D3900B2F7AA /* Matrix.h */,
+				F65E77BE1CFB3D3900B2F7AA /* matrix_transform.cpp */,
+				F65E77BF1CFB3D3900B2F7AA /* matrix_transform.h */,
+				F65E77C01CFB3D3900B2F7AA /* newRaster.cpp */,
+				F65E77C11CFB3D3900B2F7AA /* newRaster.h */,
+				F65E77C21CFB3D3900B2F7AA /* raster.cpp */,
+				F65E77C31CFB3D3900B2F7AA /* raster.h */,
+				F65E77C41CFB3D3900B2F7AA /* ray_polygon_intersection.cpp */,
+				F65E77C51CFB3D3900B2F7AA /* ray_polygon_intersection.h */,
+				F65E77C61CFB3D3900B2F7AA /* Vector3.cpp */,
+				F65E77C71CFB3D3900B2F7AA /* Vector3.h */,
+			);
+			name = Raster;
+			path = ADT/GUI/image_file_parse/Raster;
 			sourceTree = "<group>";
 		};
 		F68840EF1CD10C0A00304589 /* frameworks */ = {
@@ -203,14 +195,12 @@
 		F6E343D91CC68ABD0078E638 = {
 			isa = PBXGroup;
 			children = (
-				29F46DFC1CF3FE8700488ED4 /* print */,
 				F68840EF1CD10C0A00304589 /* frameworks */,
-				F62471A11CDA412200695231 /* Raster */,
-				F68840EB1CD1079700304589 /* Window */,
-				F68840DF1CD0F93000304589 /* GUI */,
-				F64F67FF1CC92AED00450825 /* file_parse */,
-				F6E343E51CC68ABD0078E638 /* main.cpp */,
-				F6E343EC1CC68D190078E638 /* data_types */,
+				F65E77951CFB3D1400B2F7AA /* ADT */,
+				F65E779F1CFB3D1E00B2F7AA /* GUI */,
+				F65E77A61CFB3D2A00B2F7AA /* image_file_parse */,
+				F65E77BB1CFB3D3900B2F7AA /* Raster */,
+				F65E77CE1CFB3D4800B2F7AA /* main.cpp */,
 				F6E343E31CC68ABD0078E638 /* Products */,
 				F64F68031CC92AF400450825 /* resource */,
 			);
@@ -222,19 +212,6 @@
 				F6E343E21CC68ABD0078E638 /* CG */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		F6E343EC1CC68D190078E638 /* data_types */ = {
-			isa = PBXGroup;
-			children = (
-				F6E343EE1CC68D7D0078E638 /* MutableData.cpp */,
-				F6E343EF1CC68D7D0078E638 /* MutableData.h */,
-				F677CA1F1CCBCC1B00E5265D /* HashTable.cpp */,
-				F677CA201CCBCC1B00E5265D /* HashTable.h */,
-				F6D53EC81CCFAE4F00F5EFC1 /* CCDictionary.cpp */,
-				F6D53EC91CCFAE4F00F5EFC1 /* CCDictionary.h */,
-			);
-			name = data_types;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -306,25 +283,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F68840EE1CD107DA00304589 /* Window.cpp in Sources */,
-				F6488CE91CE4BA560008C9DE /* newRaster.cpp in Sources */,
-				29E5E21F1CF45A89002C3CD0 /* ColorModeDataSection.cpp in Sources */,
-				29E5E2191CF45675002C3CD0 /* LPsdParser.cpp in Sources */,
-				F6E343F01CC68D7D0078E638 /* MutableData.cpp in Sources */,
-				29E5E2281CF46269002C3CD0 /* LayerAndMaskInformationSection.cpp in Sources */,
-				29E5E21C1CF45809002C3CD0 /* FileHeaderSection.cpp in Sources */,
-				F62471A51CDA418000695231 /* Vector3.cpp in Sources */,
-				F65632B01CDF7F2F00E37C1C /* raster.cpp in Sources */,
-				F64F68021CC92AED00450825 /* LBitmap.cpp in Sources */,
-				F65632AD1CDF741300E37C1C /* Matrix.cpp in Sources */,
-				29F46DFF1CF3FEA900488ED4 /* print.cpp in Sources */,
-				F6D53ECA1CCFAE4F00F5EFC1 /* CCDictionary.cpp in Sources */,
-				F62471A91CDA492A00695231 /* ray_polygon_intersection.cpp in Sources */,
-				29E5E2251CF45D25002C3CD0 /* ImageResourcesSection.cpp in Sources */,
-				F657A2DC1CE84ED80000AC3E /* matrix_transform.cpp in Sources */,
-				F68840E21CD0F98500304589 /* Draw.cpp in Sources */,
-				F677CA211CCBCC1B00E5265D /* HashTable.cpp in Sources */,
-				F6E343E61CC68ABD0078E638 /* main.cpp in Sources */,
+				F65E77C81CFB3D3900B2F7AA /* Matrix.cpp in Sources */,
+				F65E77B91CFB3D2A00B2F7AA /* LayerAndMaskInformationSection.cpp in Sources */,
+				F65E77CF1CFB3D4800B2F7AA /* main.cpp in Sources */,
+				F65E779D1CFB3D1400B2F7AA /* HashTable.cpp in Sources */,
+				F65E77B51CFB3D2A00B2F7AA /* LBitmap.cpp in Sources */,
+				F65E77A51CFB3D1E00B2F7AA /* Window.cpp in Sources */,
+				F65E77CA1CFB3D3900B2F7AA /* newRaster.cpp in Sources */,
+				F65E77CD1CFB3D3900B2F7AA /* Vector3.cpp in Sources */,
+				F65E77CC1CFB3D3900B2F7AA /* ray_polygon_intersection.cpp in Sources */,
+				F65E779C1CFB3D1400B2F7AA /* CCDictionary.cpp in Sources */,
+				F65E77B81CFB3D2A00B2F7AA /* ImageResourcesSection.cpp in Sources */,
+				F65E77B71CFB3D2A00B2F7AA /* FileHeaderSection.cpp in Sources */,
+				F65E779E1CFB3D1400B2F7AA /* MutableData.cpp in Sources */,
+				F65E77C91CFB3D3900B2F7AA /* matrix_transform.cpp in Sources */,
+				F65E77B61CFB3D2A00B2F7AA /* ColorModeDataSection.cpp in Sources */,
+				F65E77BA1CFB3D2A00B2F7AA /* LPsdParser.cpp in Sources */,
+				F65E77A41CFB3D1E00B2F7AA /* Draw.cpp in Sources */,
+				F65E77CB1CFB3D3900B2F7AA /* raster.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

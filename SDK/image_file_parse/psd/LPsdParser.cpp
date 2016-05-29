@@ -7,7 +7,6 @@
 //
 
 #include "LPsdParser.h"
-#include "print.h"
 
 //psd格式说明
 //http://www.adobe.com/devnet-apps/photoshop/fileformatashtml/#50577409_46269
