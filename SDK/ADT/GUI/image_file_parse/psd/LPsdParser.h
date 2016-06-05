@@ -48,5 +48,4 @@ private:
 
 void testPsdParser();
 
-
 #endif /* LPsdParser_hpp */

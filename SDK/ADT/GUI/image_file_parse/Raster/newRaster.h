@@ -15,6 +15,7 @@
 
 //世界坐标到模型视图坐标
 void worldToModelView();
+
 //设置模型视图矩阵
 void setModelViewTransform(float dx, float dy, float dz);
 void setModelViewScale(float sx, float sy, float sz);
@@ -24,5 +25,6 @@ void setModelViewRotate(float x, float y, float z);//摄像机方向旋转到哪
 void modelViewToProjection();
 
 void projectionToViewport();
+
 
 #endif /* newRaster_hpp */

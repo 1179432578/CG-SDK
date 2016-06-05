@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F64F68061CC92AF400450825 /* 1000023351375.bmp in Resources */ = {isa = PBXBuildFile; fileRef = F64F68041CC92AF400450825 /* 1000023351375.bmp */; };
-		F64F68071CC92AF400450825 /* data in Resources */ = {isa = PBXBuildFile; fileRef = F64F68051CC92AF400450825 /* data */; };
+		F65826CF1D03E05A008B53DE /* mgl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F65826CD1D03E05A008B53DE /* mgl.cpp */; };
+		F65826D31D04518E008B53DE /* Gobang.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F65826D11D04518E008B53DE /* Gobang.cpp */; };
+		F65826D61D047BA8008B53DE /* text.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F65826D41D047BA8008B53DE /* text.cpp */; };
+		F65826DB1D048B22008B53DE /* resource in Resources */ = {isa = PBXBuildFile; fileRef = F65826DA1D048B22008B53DE /* resource */; };
+		F65826DC1D048B3A008B53DE /* resource in CopyFiles */ = {isa = PBXBuildFile; fileRef = F65826DA1D048B22008B53DE /* resource */; };
 		F65E779C1CFB3D1400B2F7AA /* CCDictionary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F65E77961CFB3D1400B2F7AA /* CCDictionary.cpp */; };
 		F65E779D1CFB3D1400B2F7AA /* HashTable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F65E77981CFB3D1400B2F7AA /* HashTable.cpp */; };
 		F65E779E1CFB3D1400B2F7AA /* MutableData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F65E779A1CFB3D1400B2F7AA /* MutableData.cpp */; };
@@ -34,18 +37,24 @@
 /* Begin PBXCopyFilesBuildPhase section */
 		F6E343E01CC68ABD0078E638 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 16;
 			files = (
+				F65826DC1D048B3A008B53DE /* resource in CopyFiles */,
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		F64F68041CC92AF400450825 /* 1000023351375.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = 1000023351375.bmp; sourceTree = "<group>"; };
-		F64F68051CC92AF400450825 /* data */ = {isa = PBXFileReference; lastKnownFileType = file; path = data; sourceTree = "<group>"; };
+		F65826CD1D03E05A008B53DE /* mgl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = mgl.cpp; path = mgl/mgl.cpp; sourceTree = "<group>"; };
+		F65826CE1D03E05A008B53DE /* mgl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = mgl.h; path = mgl/mgl.h; sourceTree = "<group>"; };
+		F65826D11D04518E008B53DE /* Gobang.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Gobang.cpp; path = minigame/Gobang.cpp; sourceTree = "<group>"; };
+		F65826D21D04518E008B53DE /* Gobang.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Gobang.h; path = minigame/Gobang.h; sourceTree = "<group>"; };
+		F65826D41D047BA8008B53DE /* text.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = text.cpp; path = mgl/text.cpp; sourceTree = "<group>"; };
+		F65826D51D047BA8008B53DE /* text.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = text.h; path = mgl/text.h; sourceTree = "<group>"; };
+		F65826DA1D048B22008B53DE /* resource */ = {isa = PBXFileReference; lastKnownFileType = folder; name = resource; path = resource/resource; sourceTree = "<group>"; };
 		F65E77961CFB3D1400B2F7AA /* CCDictionary.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCDictionary.cpp; sourceTree = "<group>"; };
 		F65E77971CFB3D1400B2F7AA /* CCDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCDictionary.h; sourceTree = "<group>"; };
 		F65E77981CFB3D1400B2F7AA /* HashTable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HashTable.cpp; sourceTree = "<group>"; };
@@ -100,13 +109,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F64F68031CC92AF400450825 /* resource */ = {
+		F65826CC1D03E035008B53DE /* mgl */ = {
 			isa = PBXGroup;
 			children = (
-				F64F68041CC92AF400450825 /* 1000023351375.bmp */,
-				F64F68051CC92AF400450825 /* data */,
+				F65826CD1D03E05A008B53DE /* mgl.cpp */,
+				F65826CE1D03E05A008B53DE /* mgl.h */,
+				F65826D41D047BA8008B53DE /* text.cpp */,
+				F65826D51D047BA8008B53DE /* text.h */,
 			);
-			path = resource;
+			name = mgl;
+			sourceTree = "<group>";
+		};
+		F65826D01D04513A008B53DE /* minigame */ = {
+			isa = PBXGroup;
+			children = (
+				F65826D11D04518E008B53DE /* Gobang.cpp */,
+				F65826D21D04518E008B53DE /* Gobang.h */,
+			);
+			name = minigame;
 			sourceTree = "<group>";
 		};
 		F65E77951CFB3D1400B2F7AA /* ADT */ = {
@@ -166,6 +186,7 @@
 		F65E77BB1CFB3D3900B2F7AA /* Raster */ = {
 			isa = PBXGroup;
 			children = (
+				F65826CC1D03E035008B53DE /* mgl */,
 				F65E77BC1CFB3D3900B2F7AA /* Matrix.cpp */,
 				F65E77BD1CFB3D3900B2F7AA /* Matrix.h */,
 				F65E77BE1CFB3D3900B2F7AA /* matrix_transform.cpp */,
@@ -195,6 +216,7 @@
 		F6E343D91CC68ABD0078E638 = {
 			isa = PBXGroup;
 			children = (
+				F65826D01D04513A008B53DE /* minigame */,
 				F68840EF1CD10C0A00304589 /* frameworks */,
 				F65E77951CFB3D1400B2F7AA /* ADT */,
 				F65E779F1CFB3D1E00B2F7AA /* GUI */,
@@ -202,7 +224,7 @@
 				F65E77BB1CFB3D3900B2F7AA /* Raster */,
 				F65E77CE1CFB3D4800B2F7AA /* main.cpp */,
 				F6E343E31CC68ABD0078E638 /* Products */,
-				F64F68031CC92AF400450825 /* resource */,
+				F65826DA1D048B22008B53DE /* resource */,
 			);
 			sourceTree = "<group>";
 		};
@@ -271,8 +293,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F64F68071CC92AF400450825 /* data in Resources */,
-				F64F68061CC92AF400450825 /* 1000023351375.bmp in Resources */,
+				F65826DB1D048B22008B53DE /* resource in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,12 +310,15 @@
 				F65E779D1CFB3D1400B2F7AA /* HashTable.cpp in Sources */,
 				F65E77B51CFB3D2A00B2F7AA /* LBitmap.cpp in Sources */,
 				F65E77A51CFB3D1E00B2F7AA /* Window.cpp in Sources */,
+				F65826CF1D03E05A008B53DE /* mgl.cpp in Sources */,
 				F65E77CA1CFB3D3900B2F7AA /* newRaster.cpp in Sources */,
 				F65E77CD1CFB3D3900B2F7AA /* Vector3.cpp in Sources */,
 				F65E77CC1CFB3D3900B2F7AA /* ray_polygon_intersection.cpp in Sources */,
 				F65E779C1CFB3D1400B2F7AA /* CCDictionary.cpp in Sources */,
 				F65E77B81CFB3D2A00B2F7AA /* ImageResourcesSection.cpp in Sources */,
 				F65E77B71CFB3D2A00B2F7AA /* FileHeaderSection.cpp in Sources */,
+				F65826D31D04518E008B53DE /* Gobang.cpp in Sources */,
+				F65826D61D047BA8008B53DE /* text.cpp in Sources */,
 				F65E779E1CFB3D1400B2F7AA /* MutableData.cpp in Sources */,
 				F65E77C91CFB3D3900B2F7AA /* matrix_transform.cpp in Sources */,
 				F65E77B61CFB3D2A00B2F7AA /* ColorModeDataSection.cpp in Sources */,

@@ -50,4 +50,7 @@ Matrix44 mglViewport(int x, int y, int width, int height);
 
 //3d顶点坐标变换管道
 void testVertexTransform(Vector4 vertex[], int n);
+
+/*test*/
+void testRaster();
 #endif /* matrix_transform_hpp */

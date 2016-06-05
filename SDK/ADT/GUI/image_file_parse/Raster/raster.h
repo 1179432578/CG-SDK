@@ -53,4 +53,5 @@ void translateViewpoint(float dx, float dy, float dz);
 
 /****************************************************/
 
+
 #endif /* raster_hpp */
