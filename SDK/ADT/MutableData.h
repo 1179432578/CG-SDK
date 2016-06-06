@@ -56,6 +56,10 @@ public:
     
     //跳过length个位置
     inline void skip(int length){pos += length;}
+    
+    int getLength(){return m_data.size();};
+    
+    bool isFinsh(){return pos >= m_data.size();};
 private:
     vector<char> m_data;//不需要写析构函数了，默认析构函数就可以把m_data内存释放了
     int pos = 0;

@@ -12,8 +12,8 @@
 
 class CCObject{
 public:
-    CCObject(int n):m_n(n){}
-    int m_n;
+//    CCObject(int n):m_n(n){}
+//    int m_n;
 };
 
 //CCNull

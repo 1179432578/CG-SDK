@@ -23,4 +23,8 @@ void drawPiece(int x, int y);
 void mouse(int button, int state, int x, int y);
 
 void keyboard(unsigned char keyValue, int x, int y);
+
+bool checkWin(int arr[][12], int x, int y);
+
+void drawOtherPiece(int x, int y);
 #endif /* Gobang_hpp */

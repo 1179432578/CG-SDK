@@ -52,7 +52,7 @@ void mglMoveTo(int x, int y);
 
 /*draw circle*/
 void mglDrawCircle(int x, int y, int radius);
-
+void mglFillCircle(int x, int y, int r);
 /*draw arc*/
 
 

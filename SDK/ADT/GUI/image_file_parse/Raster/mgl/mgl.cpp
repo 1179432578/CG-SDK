@@ -10,9 +10,9 @@
 #include <string.h>
 #include <math.h>
 
-int *FBO = NULL;
 static int WIDTH, HEIGHT;
 static GLuint TEX;
+int *FBO = NULL;
 
 /*初始化mgl，需要在opengl初始化结束后再调用*/
 void mglInit(int argc, char * argv[], int width, int height){
@@ -96,6 +96,9 @@ void mglSetColor(float r, float g, float b, float a){
 
 /*左上角00*/
 void mglDrawPixel(int x, int y){
+    if (y >= HEIGHT || y <0 || x >= WIDTH || x < 0) {
+        return;
+    }
     FBO[y*WIDTH + x] = COLOR;
 }
 
@@ -184,4 +187,44 @@ void mglDrawCircle(int cx, int cy, int radius){
         /*画出8个对称点*/
         circle(px, py, cx, cy);
     }
+}
+
+// 基于 Bresenham 算法画填充圆
+void mglFillCircle(int x, int y, int r)
+{
+    int tx = 0, ty = r, d = 3 - 2 * r, i;
+    
+    while( tx < ty)
+    {
+        // 画水平两点连线(<45度)
+        for (i = x - ty; i <= x + ty; i++)
+        {
+            mglDrawPixel(i, y - tx);
+            if (tx != 0)	// 防止水平线重复绘制
+                mglDrawPixel(i, y + tx );
+        }
+        
+        if (d < 0)			// 取上面的点
+            d += 4 * tx + 6;
+        else				// 取下面的点
+        {
+            // 画水平两点连线(>45度)
+            for (i = x - tx; i <= x + tx; i++)
+            {
+                mglDrawPixel(i, y - ty);
+                mglDrawPixel(i, y + ty);
+            }
+            
+            d += 4 * (tx - ty) + 10, ty--;
+        }
+        
+        tx++;
+    }
+    
+    if (tx == ty)			// 画水平两点连线(=45度)
+        for (i = x - ty; i <= x + ty; i++)
+        {
+            mglDrawPixel(i, y - tx);
+            mglDrawPixel(i, y + tx);
+        }
 }

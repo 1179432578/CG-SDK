@@ -9,85 +9,85 @@
 #include "text.h"
 #include "mgl.h"
 #include "MutableData.h"
+#include "CCDictionary.h"
 
 /*
  *点阵字体
  *http://www.388g.com/dianzhen/
  */
 
-char *fnt;/*字体库*/
-int width;
-int height;
+class PFont : public CCObject{
+public:
+    int width;
+    int height;
+    char c[4];
+    char *data;
+};
 
-char *yin = "0000000000000000000000\
-0000000000000000000000\
-0000000000000000000000\
-0000000001110000000000\
-0111111111111111111110\
-0111111111111111111110\
-0001110000000000000000\
-0001111111111111110000\
-0000000000000000000000\
-0001111111111111111000\
-0001110000000001111000\
-0001110000000001111000\
-0001111111111111111000\
-0000000000000000000000\
-0111111111111111111100\
-0111011111011111011100\
-0111111111111111111100\
-0111011111111111111100\
-0111011111111111111100\
-0111111111110111111100\
-0111011111111111011110\
-0111111111111111011111\
-0111111111001110001110\
-0000000000000000000000\
-0000000000000000000000";
+CCDictionary dict;/*字体库*/
 
 void drawText(const char *str, int x, int y){
-    for (int i=0; i<height; i++) {
-        for (int j=0; j<width; j++) {
-            if (fnt[i*width+j] == '1') {
-                mglDrawPixel(x+j, y+i);
+    char c[4] = {0};
+    int posX = x;
+    int posY = y;
+    for(int i=0; i<strlen(str)/3; i++){
+        memcpy(c, str+i*3, 3);
+        
+        PFont *fnt = (PFont *)dict.objectForKey(c);
+        for (int i=0; i<fnt->height; i++) {
+            for (int j=0; j<fnt->width; j++) {
+                if (fnt->data[i*fnt->width+j] == '1') {
+                    mglDrawPixel(posX+j, posY+i);
+                }
             }
         }
+        posX += fnt->width;
     }
+    
+    glutPostRedisplay();
 }
 
 void parseFontFile(char *filename){
     MutableData d;
     d.readFile(filename);
     
-    d.skip(1);//<
-    short c = d.parseShort();//读汉字
-    d.skip(3);//跳过>与换行符
-    
-    fnt = new char[1000];//足够大
-    memset(fnt, 0, 1000);
-    int i=0;
-    char cc;
-    d.parseChar(&cc);
-    int flag =  true;
-    width = 0;
-    height = 0;
-    while (cc != '<') {
-        if (cc != '\n' && cc!= '\r') {
-            fnt[i++] = cc;
-        }
-        else{
-            flag = false;//遇到‘\n’后宽统计结束
-            height++;//遇到‘\n’高加一
-        }
+    while (!d.isFinsh()) {
+        PFont *fnt = new PFont;
+        fnt->data = new char[1000];
+        memset(fnt->data, 0, 1000);
+        memset(fnt->c, 0, 4);
+        fnt->width = 1;
+        fnt->height = 1;
         
-        if (flag) {
-            width++;
-        }
-        
+        d.skip(1);//skip <
+        d.parseChars(fnt->c, 3);//读汉字
+        d.skip(3);//skip > and \r\n
+
+        int i=0;
+        char cc;
         d.parseChar(&cc);
+        int flag =  true;
+
+        while (cc != '<') {
+            if (cc != '\n' && cc!= '\r') {
+                fnt->data[i++] = cc;
+            }
+            else{
+                flag = false;//遇到‘\n’后宽统计结束
+                fnt->height++;//遇到‘\n’高加一
+            }
+            
+            if (flag) {
+                fnt->width++;
+            }
+            
+            d.parseChar(&cc);
+        }
+        
+        d.skip(3);// skip />\n
+        
+        dict.setObject(fnt, fnt->c);
     }
-    
-    int a =5;
 }
 
 /*支持绘制a-z26个字母*/

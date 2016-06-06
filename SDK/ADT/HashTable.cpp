@@ -8,6 +8,7 @@
 
 #include "HashTable.h"
 #include <stdio.h>
+#include <wchar.h>
 
 //这个算法是Daniel J.Bernstein 教授发明的，是目前公布的最有效的哈希函数。
 int DJBHash(char *str)
@@ -37,7 +38,7 @@ HashTable::HashTable(){
     m_length = DEFALUT_INITIAL_CAPACITY;
     m_table = new Element*[DEFALUT_INITIAL_CAPACITY];
     
-    memset(m_table, 0, sizeof(Entry*) * DEFALUT_INITIAL_CAPACITY);
+    memset(m_table, 0, sizeof(Element*) * DEFALUT_INITIAL_CAPACITY);
 }
 
 HashTable::HashTable(int initialCapacity){
@@ -68,7 +69,7 @@ HashTable::HashTable(int initialCapacity, float loadFactor){
     m_length = capacity;
     m_table = new Element*[capacity];
     
-    memset(m_table, 0, sizeof(Entry*) * capacity);
+    memset(m_table, 0, sizeof(Element*) * capacity);
 }
 
 // not support objects that key equal
@@ -146,9 +147,13 @@ void* HashTable::get(void *key, int size){
                 if (str[i] != ((char*)e->key)[i]) {
                     break;
                 }
+                
+                //the two elements have same size and chars
+                if(i == size-1){
+                    return e->value;
+                }
             }
-            //the two elements have same size and chars
-            return e->value;
+            
         }
     }
     //not find

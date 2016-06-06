@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		29F612021D052B1B00508815 /* server.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 29F612001D052B1B00508815 /* server.cpp */; };
 		F65826CF1D03E05A008B53DE /* mgl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F65826CD1D03E05A008B53DE /* mgl.cpp */; };
 		F65826D31D04518E008B53DE /* Gobang.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F65826D11D04518E008B53DE /* Gobang.cpp */; };
 		F65826D61D047BA8008B53DE /* text.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F65826D41D047BA8008B53DE /* text.cpp */; };
@@ -48,6 +49,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		29F612001D052B1B00508815 /* server.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = server.cpp; path = minigame/server.cpp; sourceTree = "<group>"; };
+		29F612011D052B1B00508815 /* server.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = server.h; path = minigame/server.h; sourceTree = "<group>"; };
 		F65826CD1D03E05A008B53DE /* mgl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = mgl.cpp; path = mgl/mgl.cpp; sourceTree = "<group>"; };
 		F65826CE1D03E05A008B53DE /* mgl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = mgl.h; path = mgl/mgl.h; sourceTree = "<group>"; };
 		F65826D11D04518E008B53DE /* Gobang.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Gobang.cpp; path = minigame/Gobang.cpp; sourceTree = "<group>"; };
@@ -125,6 +128,8 @@
 			children = (
 				F65826D11D04518E008B53DE /* Gobang.cpp */,
 				F65826D21D04518E008B53DE /* Gobang.h */,
+				29F612001D052B1B00508815 /* server.cpp */,
+				29F612011D052B1B00508815 /* server.h */,
 			);
 			name = minigame;
 			sourceTree = "<group>";
@@ -308,6 +313,7 @@
 				F65E77B91CFB3D2A00B2F7AA /* LayerAndMaskInformationSection.cpp in Sources */,
 				F65E77CF1CFB3D4800B2F7AA /* main.cpp in Sources */,
 				F65E779D1CFB3D1400B2F7AA /* HashTable.cpp in Sources */,
+				29F612021D052B1B00508815 /* server.cpp in Sources */,
 				F65E77B51CFB3D2A00B2F7AA /* LBitmap.cpp in Sources */,
 				F65E77A51CFB3D1E00B2F7AA /* Window.cpp in Sources */,
 				F65826CF1D03E05A008B53DE /* mgl.cpp in Sources */,
@@ -413,6 +419,7 @@
 		F6E343EA1CC68ABD0078E638 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -425,6 +432,7 @@
 		F6E343EB1CC68ABD0078E638 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				PRODUCT_NAME = CG;
 			};
 			name = Release;
