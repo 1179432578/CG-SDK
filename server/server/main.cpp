@@ -15,6 +15,7 @@
 #include <pthread.h>
 #include <iostream>
 #include <stdio.h>
+#include "Client.h"
 
 /*与客户端进行通信*/
 void* communicationWithClient(void *);
@@ -31,7 +32,7 @@ int main (int argc, const char * argv[])
     server_addr.sin_len = sizeof(struct sockaddr_in);
     server_addr.sin_family = AF_INET;//Address families AF_INET互联网地址簇
     server_addr.sin_port = htons(999999);
-    server_addr.sin_addr.s_addr = inet_addr("192.168.120.91");
+    server_addr.sin_addr.s_addr = inet_addr("127.0.0.1");
     bzero(&(server_addr.sin_zero),8);
     
     //创建socket
@@ -64,12 +65,16 @@ int main (int argc, const char * argv[])
         struct sockaddr_in client_address;
         socklen_t address_len;
         
-        client_sockets[clientNum++] = accept(server_socket, (struct sockaddr *)&client_address, &address_len);
-        setsockopt(client_sockets[clientNum-1], SOL_SOCKET, SO_NOSIGPIPE, NULL, sizeof(int));//防bug
+//        client_sockets[clientNum++] = accept(server_socket, (struct sockaddr *)&client_address, &address_len);
+        int  client_socket = accept(server_socket, (struct sockaddr *)&client_address, &address_len);
+        Client *c = new Client;
+        c->socket = client_socket;
+        ClientManager::getInstance()->addClient(c);
+        setsockopt(client_socket, SOL_SOCKET, SO_NOSIGPIPE, NULL, sizeof(int));//防bug
         
         // 启动一个线程跟客户端进行通信
         pthread_t id;
-        pthread_create(&id, NULL, communicationWithClient, &client_sockets[clientNum-1]);
+        pthread_create(&id, NULL, communicationWithClient, c);
         //pthread_join(id, NULL);
         pthread_detach(id);
     }
@@ -78,41 +83,39 @@ int main (int argc, const char * argv[])
 }
 
 void* communicationWithClient(void *arg){
-    int client_socket = *(int*)arg;
-
-    printf("客户id:%d\n", client_socket);
+//    int client_socket = *(int*)arg;
+    Client *c = (Client*)arg;
+    printf("客户id:%d\n", c->socket);
     
     char buf[1024];
     bzero(buf, 1024);
     //接收到ready
-    recv(client_socket, buf, 1024, 0);
-    printf("接收客户%d消息: %s\n", client_socket, buf);
+    recv(c->socket, buf, 1024, 0);
+    printf("接收客户%d消息: %s\n", c->socket, buf);
     
     //发送OK
     char *str = "OK";
-    send(client_socket, str, 3, 0);
+    send(c->socket, str, 3, 0);
     
     /*进行循环处理*/
     int revNum=1;
     while (revNum) {
         /*接收信息*/
-        revNum = recv(client_socket, buf, 1024, 0);
+        revNum = recv(c->socket, buf, 1024, 0);
         //printf("revnum: %d\n", revNum);
         if (revNum == 0) {/*如果没收到消息，结束通信*/
-            printf("结束与客户%d的通信\n", client_socket);
+            printf("结束与客户%d的通信\n", c->socket);
+            ClientManager::getInstance()->removeClient(c);
             break;
         }
+        
         int cellX, cellY;
         memcpy(&cellX, buf, 4);
         memcpy(&cellY, buf+4, 4);
-        printf("接收客户%d的消息:%d %d\n", client_socket, cellX, cellY);
+        printf("接收客户%d的消息:%d %d\n", c->socket, cellX, cellY);
         
         /*发送消息给另一个客户端*/
-        for (int i=0; i<clientNum; i++) {
-            if (client_sockets[i] != client_socket) {
-                send(client_sockets[i], buf, 8, 0);
-            }
-        }
+        ClientManager::getInstance()->sendMessage(c, buf, 8);
     }
     
     return 0;

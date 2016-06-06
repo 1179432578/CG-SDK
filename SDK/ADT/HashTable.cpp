@@ -111,11 +111,13 @@ void HashTable::put(void *key, int size, void *value){
                     // if the two chars are not equeal then break
                     break;
                 }
+                
+                if(i == size-1){
+                    //the two elements have same size and chars
+                    e->value = value;//set old value
+                    return;
+                }
             }
-            
-            //the two elements have same size and chars
-            e->value = value;//set old value
-            return;
         }
     }
     

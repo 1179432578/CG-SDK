@@ -12,24 +12,23 @@
 #include <math.h>
 #include "text.h"
 #include "server.h"
+#include "Node.h"
+#include "MainLoop.h"
 
-static int p1[12][12];/*玩家一棋子布局*/
-static int p2[12][12];/*玩家二棋子布局*/
-static bool bRun = true;/*双方一开始都可以先走棋，走一步后，等对方走棋*/
+//static int p1[12][12];/*玩家一棋子布局*/
+//static int p2[12][12];/*玩家二棋子布局*/
+static bool bNext = true;/*双方一开始都可以先走棋，走一步后，等对方走棋*/
 
-/*游戏渲染*/
+static Piece *p1;
+static Piece *p2;
+static PointFont *text1;
+static PointFont *text2;
+
 void gameRender(){
-    drawCheckerboard(600);
-    
-    mglSetColor(0, 0.3, 0.7, 1);
-    
-    mglDisplay();
 }
 
 void initGame(){
     /*set mgl*/
-    mglClearColor(1, 1, 1, 1);
-    mglClear(MGL_COLOR_BUFFER_BIT);
     
     //指定显示回调
     glutDisplayFunc(gameRender);
@@ -40,131 +39,47 @@ void initGame(){
     //指定键盘回调
     glutKeyboardFunc(keyboard);
     
-    /*初始化游戏数据*/
-    memset(p1, 0, sizeof(p1));
-    memset(p2, 0, sizeof(p2));
+    registerMainLoop();
     
     /*加载字体库*/
     parseFontFile("resource/fnt.text");
+    
+    /*初始化场景*/
+    p1 = new Piece;
+    p1->setColor(Color(0,0,0));
+    Manager::getInstance()->addNode(p1);
+    p2 = new Piece;
+    p2->setColor(Color(1,0,0));
+    Manager::getInstance()->addNode(p2);
+    
+    CheckerBoard *borad = new CheckerBoard;
+    Manager::getInstance()->addNode(borad);
+    
+    /*text1*/
+    text1 = PointFont::create("", 600, 0);
+    Manager::getInstance()->addNode(text1);
+    text2 = PointFont::create("", 600, 200);
+    Manager::getInstance()->addNode(text2);
     
     /*与服务器建立连接*/
     connectServer();
 }
 
-/*画棋盘*/
-void drawCheckerboard(int size){
-    mglSetColor(0, 0, 0, 0);
-    for (int i=0; i<=size; i+=50) {
-        mglMoveTo(0, i);
-        mglLineTo(size-1, i);
-        
-        mglMoveTo(i, 0);
-        mglLineTo(i, size-1);
-    }
-}
-
-/*画棋子*/
-void drawPiece(int x, int y){
-    mglDrawCircle(x, y, 20);
-    mglFillCircle(x, y, 20);
-    glutPostRedisplay();
-}
-
 void drawOtherPiece(int x, int y){
-    mglSetColor(1, 0, 0, 1);
-    drawPiece(x * 50, y * 50);
-    p2[y][x] = true;
+    p2->setXY(x, y);
     
     /*检查对方是否胜利*/
-    if (checkWin(p2, x, y)) {
-       drawText("你输了", 700, 100);
-        printf("You Lose!\n");
+    if (p2->checkWin(x, y)) {
+        text2->setText("你输了");
     }
     
-    bRun = true;/*下一步走棋*/
-}
-
-bool checkWin(int arr[][12], int x, int y){
-    /*进行左右检查*/
-    int num = 1;
-    int i = x - 1;
-    int j;
-    while (arr[y][i]) {
-        num++;
-        i--;
-    }
-    i = x + 1;
-    while (arr[y][i]) {
-        num++;
-        i++;
-    }
-    if (num >=5) {
-        return true;
-    }
-    
-    //进行上下检查
-    num = 1;
-    i = y + 1;
-    while(arr[i][x]){
-        num++;
-        i++;
-    }
-    i = y - 1;
-    while(arr[i][x]){
-        num++;
-        i--;
-    }
-    if (num >= 5) {
-        return true;
-    }
-    
-    //进行左上检查
-    num = 1;
-    i = x - 1;
-    j = y - 1;
-    while(arr[j][i]){
-        num++;
-        i--;
-        j--;
-    }
-    i = x + 1;
-    j = y + 1;
-    while(arr[j][i]){
-        num++;
-        i++;
-        j++;
-    }
-    if (num >= 5) {
-        return true;
-    }
-    
-    //进行右上检查
-    num = 1;
-    i = x + 1;
-    j = y - 1;
-    while(arr[j][i]){
-        num++;
-        i++;
-        j--;
-    }
-    i = x - 1;
-    j = y + 1;
-    while(arr[j][i]){
-        num++;
-        i--;
-        j++;
-    }
-    if (num >= 5) {
-        return true;
-    }
-
-    return false;
+    bNext = true;/*下一步走棋*/
 }
 
 void mouse(int button, int state, int x, int y){
     if (state == GLUT_DOWN) {
         if (button == GLUT_LEFT_BUTTON) {
-            if (!bRun) {/*不能走棋*/
+            if (!bNext) {/*不能走棋,返回不做任何操作*/
                 return;
             }
             
@@ -172,12 +87,11 @@ void mouse(int button, int state, int x, int y){
             int cellX = roundf(x / 50.0f);
             int cellY = roundf(y / 50.0f);
             if (cellX >= 1 && cellX <= 11 && cellY >= 1 && cellY <= 11) {
-                if(p1[cellY][cellX] || p2[cellY][cellX]){/*不准覆盖原来棋盘上棋子*/
+                if(p1->getXY(cellX, cellY)|| p2->getXY(cellX, cellY)){/*不准覆盖原来棋盘上棋子*/
                     return;
                 }
-                mglSetColor(0, 0, 1, 1);
-                drawPiece(cellX * 50, cellY * 50);
-                p1[cellY][cellX] = true;
+                
+                p1->setXY(cellX, cellY);
                 
                 /*发送消息给服务器*/
                 char msg[8];
@@ -186,12 +100,11 @@ void mouse(int button, int state, int x, int y){
                 sendMsg(msg, 8);
                 
                 /*检查是否胜利*/
-                if (checkWin(p1, cellX, cellY)) {
-                    drawText("你赢了", 700, 100);
-                    printf("You Win!\n");
+                if (p1->checkWin(cellX, cellY)) {
+                    text2->setText("你赢了");
                 }
                 
-                bRun = false;/*下一步对方走棋*/
+                bNext = false;/*下一步对方走棋*/
             }
         }
     }
@@ -207,5 +120,20 @@ void keyboard(unsigned char keyValue, int x, int y){
             
         default:
             break;
+    }
+}
+
+void handleRev(char *buf){
+    if (strcmp(buf, "OK") == 0) {
+        text1->setText("与服务器建立连接");
+    }
+    else{
+        int cellX, cellY;
+        memcpy(&cellX, buf, 4);
+        memcpy(&cellY, buf+4, 4);
+        //printf("接收到对战玩家数据%d %d\n", cellX, cellY);
+        
+        /*把对战玩家棋子画出来*/
+        drawOtherPiece(cellX, cellY);
     }
 }

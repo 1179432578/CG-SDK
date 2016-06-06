@@ -20,10 +20,6 @@ void connectServer();
 
 void sendMsg(char *msg, int size);
 
-void* communicateWithServer(void *arg);//与服务器通信
-
-void getMsg(char *buf, int size);//本地获得缓存中数据
-
-bool checkMsg();/*检查是否有消息*/
+void* keepServer(void *arg);//与服务器通信
 
 #endif /* server_hpp */

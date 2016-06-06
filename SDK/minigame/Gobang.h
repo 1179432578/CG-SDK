@@ -27,4 +27,8 @@ void keyboard(unsigned char keyValue, int x, int y);
 bool checkWin(int arr[][12], int x, int y);
 
 void drawOtherPiece(int x, int y);
+
+/*处理从服务器接收的数据*/
+void handleRev(char *buf);
+
 #endif /* Gobang_hpp */

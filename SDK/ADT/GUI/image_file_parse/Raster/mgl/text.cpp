@@ -43,8 +43,6 @@ void drawText(const char *str, int x, int y){
         }
         posX += fnt->width;
     }
-    
-    glutPostRedisplay();
 }
 
 void parseFontFile(char *filename){
