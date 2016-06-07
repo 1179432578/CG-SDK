@@ -31,6 +31,8 @@
 		F65E77CC1CFB3D3900B2F7AA /* ray_polygon_intersection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F65E77C41CFB3D3900B2F7AA /* ray_polygon_intersection.cpp */; };
 		F65E77CD1CFB3D3900B2F7AA /* Vector3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F65E77C61CFB3D3900B2F7AA /* Vector3.cpp */; };
 		F65E77CF1CFB3D4800B2F7AA /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F65E77CE1CFB3D4800B2F7AA /* main.cpp */; };
+		F66C35FB1D07009500CDF38B /* FileUtils.mm in Sources */ = {isa = PBXBuildFile; fileRef = F66C35F91D07009500CDF38B /* FileUtils.mm */; };
+		F66C35FD1D07051E00CDF38B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F66C35FC1D07051E00CDF38B /* Foundation.framework */; };
 		F66C76301D05A2A7006307ED /* MainLoop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F66C762E1D05A2A7006307ED /* MainLoop.cpp */; };
 		F66C76331D05A462006307ED /* Node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F66C76311D05A462006307ED /* Node.cpp */; };
 		F68840E81CD0FFC300304589 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F68840E71CD0FFC300304589 /* OpenGL.framework */; };
@@ -96,6 +98,9 @@
 		F65E77C61CFB3D3900B2F7AA /* Vector3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vector3.cpp; sourceTree = "<group>"; };
 		F65E77C71CFB3D3900B2F7AA /* Vector3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vector3.h; sourceTree = "<group>"; };
 		F65E77CE1CFB3D4800B2F7AA /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = ADT/GUI/image_file_parse/Raster/main.cpp; sourceTree = "<group>"; };
+		F66C35F91D07009500CDF38B /* FileUtils.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FileUtils.mm; path = file_utils/FileUtils.mm; sourceTree = "<group>"; };
+		F66C35FA1D07009500CDF38B /* FileUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FileUtils.h; path = file_utils/FileUtils.h; sourceTree = "<group>"; };
+		F66C35FC1D07051E00CDF38B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F66C762E1D05A2A7006307ED /* MainLoop.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MainLoop.cpp; path = minigame/MainLoop.cpp; sourceTree = "<group>"; };
 		F66C762F1D05A2A7006307ED /* MainLoop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainLoop.h; path = minigame/MainLoop.h; sourceTree = "<group>"; };
 		F66C76311D05A462006307ED /* Node.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Node.cpp; path = minigame/Node.cpp; sourceTree = "<group>"; };
@@ -110,6 +115,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F66C35FD1D07051E00CDF38B /* Foundation.framework in Frameworks */,
 				F68840EA1CD0FFD400304589 /* GLUT.framework in Frameworks */,
 				F68840E81CD0FFC300304589 /* OpenGL.framework in Frameworks */,
 			);
@@ -219,9 +225,19 @@
 			path = ADT/GUI/image_file_parse/Raster;
 			sourceTree = "<group>";
 		};
+		F66C35F81D07001400CDF38B /* file_utils */ = {
+			isa = PBXGroup;
+			children = (
+				F66C35F91D07009500CDF38B /* FileUtils.mm */,
+				F66C35FA1D07009500CDF38B /* FileUtils.h */,
+			);
+			name = file_utils;
+			sourceTree = "<group>";
+		};
 		F68840EF1CD10C0A00304589 /* frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F66C35FC1D07051E00CDF38B /* Foundation.framework */,
 				F68840E91CD0FFD400304589 /* GLUT.framework */,
 				F68840E71CD0FFC300304589 /* OpenGL.framework */,
 			);
@@ -231,6 +247,7 @@
 		F6E343D91CC68ABD0078E638 = {
 			isa = PBXGroup;
 			children = (
+				F66C35F81D07001400CDF38B /* file_utils */,
 				F65826CC1D03E035008B53DE /* mgl */,
 				F65826D01D04513A008B53DE /* minigame */,
 				F68840EF1CD10C0A00304589 /* frameworks */,
@@ -333,6 +350,7 @@
 				F65E779C1CFB3D1400B2F7AA /* CCDictionary.cpp in Sources */,
 				F65E77B81CFB3D2A00B2F7AA /* ImageResourcesSection.cpp in Sources */,
 				F65E77B71CFB3D2A00B2F7AA /* FileHeaderSection.cpp in Sources */,
+				F66C35FB1D07009500CDF38B /* FileUtils.mm in Sources */,
 				F65826D31D04518E008B53DE /* Gobang.cpp in Sources */,
 				F65826D61D047BA8008B53DE /* text.cpp in Sources */,
 				F65E779E1CFB3D1400B2F7AA /* MutableData.cpp in Sources */,

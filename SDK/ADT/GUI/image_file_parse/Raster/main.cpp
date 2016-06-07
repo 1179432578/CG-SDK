@@ -23,7 +23,7 @@
 #include "LPsdParser.h"
 #include "mgl.h"
 #include "Gobang.h"
-
+#include "FileUtils.h"
 
 int main(int argc, const char * argv[]) {
     mglInit(argc, (char**)argv, 800, 800);
