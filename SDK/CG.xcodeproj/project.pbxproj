@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		29E242421D06D0890080DB2A /* Button.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 29E242401D06D0890080DB2A /* Button.cpp */; };
 		29F612021D052B1B00508815 /* server.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 29F612001D052B1B00508815 /* server.cpp */; };
 		F65826CF1D03E05A008B53DE /* mgl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F65826CD1D03E05A008B53DE /* mgl.cpp */; };
 		F65826D31D04518E008B53DE /* Gobang.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F65826D11D04518E008B53DE /* Gobang.cpp */; };
@@ -50,6 +51,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		29E242401D06D0890080DB2A /* Button.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Button.cpp; path = minigame/Button.cpp; sourceTree = "<group>"; };
+		29E242411D06D0890080DB2A /* Button.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Button.h; path = minigame/Button.h; sourceTree = "<group>"; };
 		29F612001D052B1B00508815 /* server.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = server.cpp; path = minigame/server.cpp; sourceTree = "<group>"; };
 		29F612011D052B1B00508815 /* server.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = server.h; path = minigame/server.h; sourceTree = "<group>"; };
 		F65826CD1D03E05A008B53DE /* mgl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = mgl.cpp; path = mgl/mgl.cpp; sourceTree = "<group>"; };
@@ -138,6 +141,8 @@
 				29F612011D052B1B00508815 /* server.h */,
 				F66C76311D05A462006307ED /* Node.cpp */,
 				F66C76321D05A462006307ED /* Node.h */,
+				29E242401D06D0890080DB2A /* Button.cpp */,
+				29E242411D06D0890080DB2A /* Button.h */,
 			);
 			name = minigame;
 			sourceTree = "<group>";
@@ -338,6 +343,7 @@
 				F65E77BA1CFB3D2A00B2F7AA /* LPsdParser.cpp in Sources */,
 				F65E77A41CFB3D1E00B2F7AA /* Draw.cpp in Sources */,
 				F65E77CB1CFB3D3900B2F7AA /* raster.cpp in Sources */,
+				29E242421D06D0890080DB2A /* Button.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -24,6 +24,10 @@ void MutableData::parseChar(char *buf){
     *buf = m_data[pos++];
 }
 
+//void MutableData::parseChar(unsigned char *buf){
+//    *buf = m_data[pos++];
+//}
+
 void MutableData::appendChars(char *buf, int length){
     for (int i=0; i<length; i++) {
         m_data.push_back(buf[i]);

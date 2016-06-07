@@ -228,3 +228,11 @@ void mglFillCircle(int x, int y, int r)
             mglDrawPixel(i, y + tx);
         }
 }
+
+void mglDrawRectangle(int x, int y, int width, int height){
+    for(int j=0; j<height; j++){
+        for(int i=0; i<width; i++){
+            mglDrawPixel(x+j, y+i);
+        }
+    }
+}

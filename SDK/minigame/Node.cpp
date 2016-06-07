@@ -13,16 +13,33 @@
 
 Node *m_head = NULL;//bug
 
+void Node::setPosition(int x, int y){
+    m_posX = x;
+    m_posY = y;
+}
+
 void CheckerBoard::draw(){
+    /*画底盘*/
+    mglSetColor(244.0f/255, 146.0f/255, 111.0f/255, 0);
+    mglDrawRectangle(m_posX, m_posY, 700, 700);
+    
     mglSetColor(0, 0, 0, 0);/*黑色线条*/
-    int size = 600;
+    int size = 700;
     for (int i=0; i<=size; i+=50) {
-        mglMoveTo(0, i);
-        mglLineTo(size-1, i);
+        mglMoveTo(m_posX+0,m_posY+i);
+        mglLineTo(m_posX+size-1, m_posY+i);
         
-        mglMoveTo(i, 0);
-        mglLineTo(i, size-1);
+        mglMoveTo(m_posX+i, m_posY+0);
+        mglLineTo(m_posX+i, m_posY+size-1);
     }
+    
+    /*画五个点*/
+    mglSetColor(0, 0, 0, 0);
+    mglFillCircle(m_posX+3*50, m_posY+3*50, 5);
+    mglFillCircle(m_posX+11*50, m_posY+3*50, 5);
+    mglFillCircle(m_posX+7*50, m_posY+7*50, 5);
+    mglFillCircle(m_posX+3*50, m_posY+11*50, 5);
+    mglFillCircle(m_posX+11*50, m_posY+11*50, 5);
 }
 
 static Manager *ret = NULL;
@@ -70,7 +87,9 @@ void Manager::drawScene(){
     
     Node *p = m_head;
     while (p) {
-        p->draw();
+        if (p->m_visible) {
+            p->draw();
+        }
         p = p->m_next;
     }
     
@@ -79,10 +98,10 @@ void Manager::drawScene(){
 
 void Piece::draw(){
     mglSetColor(m_color.r, m_color.g, m_color.b, 1);
-    for (int i=1; i<12; i++) {
-        for (int j=1; j<12; j++) {
+    for (int i=0; i<15; i++) {
+        for (int j=0; j<15; j++) {
             if (m_piece[j][i]) {
-                mglFillCircle(i*50, j*50, 20);
+                mglFillCircle(m_posX+i*50, m_posY+j*50, 20);
             }
             
         }
@@ -90,7 +109,7 @@ void Piece::draw(){
 }
 
 void Piece::setXY(int x, int y){
-    if (x >= 12 || x < 0 || y >= 12 || y < 0) {
+    if (x > 14 || x < 0 || y > 14 || y < 0) {
         return;
     }
     
@@ -192,7 +211,7 @@ PointFont* PointFont::create(char *text, int x, int y){
 }
 
 void PointFont::draw(){
-    mglColor(0, 0, 1, 1);
+    mglColor(77.0f/255, 39.0f/255, 25.0f/255, 1);
     drawText(m_text, m_posX, m_posY);
 }
 
@@ -203,4 +222,40 @@ void PointFont::setText(char *text){
     int n = strlen(text) + 1;
     m_text = new char[n];
     memcpy(m_text, text, n);
+}
+
+DrawNode* DrawNode::create(int x, int y){
+    DrawNode *ret = new DrawNode;
+    ret->m_posX = x;
+    ret->m_posY = y;
+    
+    return ret;
+}
+
+void DrawNode::draw(){
+    mglColor(1, 0, 0, 1);
+    mglMoveTo(m_posX, m_posY);
+    mglLineTo(m_posX, m_posY+22);
+    mglMoveTo(m_posX, m_posY);
+    mglLineTo(m_posX+22, m_posY);
+    
+    mglMoveTo(m_posX, m_posY+50);
+    mglLineTo(m_posX, m_posY+50-22);
+    mglMoveTo(m_posX, m_posY+50);
+    mglLineTo(m_posX+22, m_posY+50);
+    
+    mglMoveTo(m_posX+50, m_posY);
+    mglLineTo(m_posX+50-22, m_posY);
+    mglMoveTo(m_posX+50, m_posY);
+    mglLineTo(m_posX+50, m_posY+22);
+    
+    mglMoveTo(m_posX+50, m_posY+50);
+    mglLineTo(m_posX+50-22, m_posY+50);
+    mglMoveTo(m_posX+50, m_posY+50);
+    mglLineTo(m_posX+50, m_posY+50-22);
+    
+    mglMoveTo(m_posX+13, m_posY+25);
+    mglLineTo(m_posX+13+24, m_posY+25);
+    mglMoveTo(m_posX+25, m_posY+13);
+    mglLineTo(m_posX+25, m_posY+13+24);
 }

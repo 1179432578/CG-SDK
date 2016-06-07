@@ -26,7 +26,7 @@
 
 
 int main(int argc, const char * argv[]) {
-    mglInit(argc, (char**)argv, 800, 600);
+    mglInit(argc, (char**)argv, 800, 800);
     
     initGame();
     

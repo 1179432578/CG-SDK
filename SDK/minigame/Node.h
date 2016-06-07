@@ -20,14 +20,24 @@ public:
 /*基本节点，用于渲染*/
 class Node{
 public:
+    virtual void setPosition(int x, int y);
+    void setVisible(bool visible){m_visible = visible;};
     virtual void draw(){}/*更新渲染*/
     Node *m_next = NULL;
+protected:
+    int m_posX;/*左上角位置*/
+    int m_posY;
+    bool m_visible = true;
+    
+    friend class Manager;
 };
 
 /*棋盘*/
 class CheckerBoard : public Node{
 public:
     virtual void draw();
+private:
+
 };
 
 /*所有棋子*/
@@ -47,7 +57,7 @@ public:
     /*设置棋子颜色*/
     void setColor(Color color);
 private:
-    bool m_piece[12][12] = {0};
+    bool m_piece[15][15] = {0};
     Color m_color = Color(0, 0, 0);/*默认黑色*/
 };
 
@@ -61,8 +71,16 @@ public:
     void setText(char *text);
 private:
     char *m_text = NULL;
-    int m_posX;//左上角位置
-    int m_posY;
+};
+
+/*
+ *draw node
+ *画直线，多边形什么的
+ */
+class DrawNode : public Node{
+public:
+    static DrawNode* create(int x, int y);
+    virtual void draw();
 };
 
 class Manager{

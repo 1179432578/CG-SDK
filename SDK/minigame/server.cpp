@@ -19,7 +19,7 @@ void connectServer(){
     server_addr.sin_len = sizeof(struct sockaddr_in);
     server_addr.sin_family = AF_INET;
     server_addr.sin_port = htons(999999);
-    server_addr.sin_addr.s_addr = inet_addr("127.0.0.1");
+    server_addr.sin_addr.s_addr = inet_addr("192.168.120.91");
     bzero(&(server_addr.sin_zero),8);
     
     server_socket = socket(AF_INET, SOCK_STREAM, 0);

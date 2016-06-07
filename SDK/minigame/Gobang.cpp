@@ -14,6 +14,8 @@
 #include "server.h"
 #include "Node.h"
 #include "MainLoop.h"
+#include <math.h>
+#include "Button.h"
 
 //static int p1[12][12];/*玩家一棋子布局*/
 //static int p2[12][12];/*玩家二棋子布局*/
@@ -23,12 +25,26 @@ static Piece *p1;
 static Piece *p2;
 static PointFont *text1;
 static PointFont *text2;
+static PointFont *text3;/*谁走棋*/
+static PointFont *text4_1;/*每步倒计时*/
+static PointFont *text4_2;
+static PointFont *text5;/*游戏时间*/
+static PointFont *text6;/*第几手*/
+static DrawNode *indicate;
+static Button *btn;
+
+static int currentPlayer;/*当前谁走棋1自己2对方*/
+static bool gameState;/*游戏状态：开始、结束*/
+static float timeLeft;/*倒计时*/
 
 void gameRender(){
 }
 
 void initGame(){
-    /*set mgl*/
+    /*init data*/
+    gameState = true;
+    currentPlayer = 1;
+    timeLeft = 60;
     
     //指定显示回调
     glutDisplayFunc(gameRender);
@@ -45,21 +61,38 @@ void initGame(){
     parseFontFile("resource/fnt.text");
     
     /*初始化场景*/
+    indicate = DrawNode::create(100-25, 100-25);
+    indicate->setVisible(false);
+    Manager::getInstance()->addNode(indicate);
+    
     p1 = new Piece;
     p1->setColor(Color(0,0,0));
+    p1->setPosition(50, 50);
     Manager::getInstance()->addNode(p1);
     p2 = new Piece;
-    p2->setColor(Color(1,0,0));
+    p2->setColor(Color(1,1,1));
+    p2->setPosition(50, 50);
     Manager::getInstance()->addNode(p2);
     
     CheckerBoard *borad = new CheckerBoard;
+    borad->setPosition(50, 50);
     Manager::getInstance()->addNode(borad);
     
     /*text1*/
     text1 = PointFont::create("", 600, 0);
     Manager::getInstance()->addNode(text1);
-    text2 = PointFont::create("", 600, 200);
+    text2 = PointFont::create("", 400, 0);
     Manager::getInstance()->addNode(text2);
+    text3 = PointFont::create("请走棋", 100, 0);
+    Manager::getInstance()->addNode(text3);
+    text4_1 = PointFont::create("倒计时:", 200, 0);
+    Manager::getInstance()->addNode(text4_1);
+    text4_2 = PointFont::create("60:00",270, 0);
+    Manager::getInstance()->addNode(text4_2);
+    text4_2->setVisible(true);
+    
+    btn = Button::create(0, 0, 200, 100, "123");
+    Manager::getInstance()->addNode(btn);
     
     /*与服务器建立连接*/
     connectServer();
@@ -67,10 +100,19 @@ void initGame(){
 
 void drawOtherPiece(int x, int y){
     p2->setXY(x, y);
+    text3->setText("请走棋");
+    text4_2->setText("60:00");
+    text4_2->setVisible(true);
+    currentPlayer = 1;
+    timeLeft = 60;
     
     /*检查对方是否胜利*/
     if (p2->checkWin(x, y)) {
         text2->setText("你输了");
+        text3->setVisible(false);
+        gameState = false;
+        text4_1->setVisible(false);
+        text4_2->setVisible(false);
     }
     
     bNext = true;/*下一步走棋*/
@@ -79,19 +121,24 @@ void drawOtherPiece(int x, int y){
 void mouse(int button, int state, int x, int y){
     if (state == GLUT_DOWN) {
         if (button == GLUT_LEFT_BUTTON) {
-            if (!bNext) {/*不能走棋,返回不做任何操作*/
+            if (!bNext || !gameState) {/*不能走棋,返回不做任何操作*/
                 return;
             }
             
             /*走棋*/
-            int cellX = roundf(x / 50.0f);
-            int cellY = roundf(y / 50.0f);
-            if (cellX >= 1 && cellX <= 11 && cellY >= 1 && cellY <= 11) {
+            int cellX = roundf(x / 50.0f) - 1;
+            int cellY = roundf(y / 50.0f) - 1;
+            if (cellX >= 0 && cellX <= 14 && cellY >= 0 && cellY <= 14) {
                 if(p1->getXY(cellX, cellY)|| p2->getXY(cellX, cellY)){/*不准覆盖原来棋盘上棋子*/
                     return;
                 }
                 
                 p1->setXY(cellX, cellY);
+                currentPlayer = 2;
+                indicate->setVisible(true);
+                indicate->setPosition(cellX*50+50-25, cellY*50+50-25);
+                text3->setText("对方走棋");
+                timeLeft = 60;
                 
                 /*发送消息给服务器*/
                 char msg[8];
@@ -102,6 +149,10 @@ void mouse(int button, int state, int x, int y){
                 /*检查是否胜利*/
                 if (p1->checkWin(cellX, cellY)) {
                     text2->setText("你赢了");
+                    text3->setVisible(false);
+                    gameState = false;
+                    text4_1->setVisible(false);
+                    text4_2->setVisible(false);
                 }
                 
                 bNext = false;/*下一步对方走棋*/
@@ -135,5 +186,30 @@ void handleRev(char *buf){
         
         /*把对战玩家棋子画出来*/
         drawOtherPiece(cellX, cellY);
+        indicate->setVisible(true);
+        indicate->setPosition(cellX*50+50-25, cellY*50+50-25);
+    }
+}
+
+void logicHandle(float delta){
+    if (gameState) {/*游戏开始了*/
+        timeLeft -= delta;/*mn:pq*/
+        
+        if (timeLeft < 0.0f) {
+            if (currentPlayer == 1) {/*本方走棋*/
+                gameState = false;
+                text2->setText("你输了");
+            }
+            else if (currentPlayer == 2){/*对方走棋*/
+                 gameState = false;
+                text2->setText("你赢了");
+            }
+        }
+        int m = floorf(timeLeft / 10);
+        int n = timeLeft - m * 10;
+        char s[3] = {0};
+        s[0] = m + '0';
+        s[1] = n + '0';
+        text4_2->setText(s);
     }
 }

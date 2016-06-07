@@ -55,6 +55,7 @@ void mglDrawCircle(int x, int y, int radius);
 void mglFillCircle(int x, int y, int r);
 /*draw arc*/
 
-
+/*draw rectangle*/
+void mglDrawRectangle(int x, int y, int width, int height);/*xy左上角*/
 
 #endif /* mgl_hpp */

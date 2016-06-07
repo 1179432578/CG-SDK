@@ -31,4 +31,6 @@ void drawOtherPiece(int x, int y);
 /*处理从服务器接收的数据*/
 void handleRev(char *buf);
 
+/*每帧的逻辑处理*/
+void logicHandle(float delta);
 #endif /* Gobang_hpp */
