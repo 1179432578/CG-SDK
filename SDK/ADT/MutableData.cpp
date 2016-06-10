@@ -8,6 +8,7 @@
 
 #include "MutableData.h"
 #include <stdio.h>
+#include "FileUtils.h"
 
 void MutableData::appendBytes(void *bytes, int length){
     char* data = (char*)bytes;
@@ -129,19 +130,23 @@ void MutableData::printHexadecimal(){
 }
 
 void MutableData::readFile(const char *filename){
-    FILE *stream = fopen(filename, "rb");
-    if (!stream) {
-        printf("cannot open %s.", filename);
-    }
+//    FILE *stream = fopen(filename, "rb");
+//    if (!stream) {
+//        printf("cannot open %s.", filename);
+//    }
+//    
+//    fseek(stream, 0, SEEK_END);
+//    int length = ftell(stream);
+//    fseek(stream, 0, SEEK_SET);
+//    
+//    unsigned char *buf = new unsigned char[length];
+//    fread(buf, length, 1, stream);
+//    
+//    fclose(stream);
     
-    fseek(stream, 0, SEEK_END);
-    int length = ftell(stream);
-    fseek(stream, 0, SEEK_SET);
-    
-    unsigned char *buf = new unsigned char[length];
-    fread(buf, length, 1, stream);
-    
-    fclose(stream);
+    unsigned long length;
+    unsigned char *buf;
+    buf = FileUtils::getInstance()->getFileData(filename, "rb", &length);
     
     for (int i=0; i<length; i++) {
         m_data.push_back(buf[i]);

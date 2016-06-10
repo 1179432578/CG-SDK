@@ -32,7 +32,7 @@ int main (int argc, const char * argv[])
     server_addr.sin_len = sizeof(struct sockaddr_in);
     server_addr.sin_family = AF_INET;//Address families AF_INET互联网地址簇
     server_addr.sin_port = htons(999999);
-    server_addr.sin_addr.s_addr = inet_addr("192.168.120.91");
+    server_addr.sin_addr.s_addr = inet_addr("127.0.0.1");
     bzero(&(server_addr.sin_zero),8);
     
     //创建socket

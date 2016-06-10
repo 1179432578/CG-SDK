@@ -18,10 +18,15 @@ void Node::setPosition(int x, int y){
     m_posY = y;
 }
 
+TiPoint Node::getPosition(){
+    return TiPoint(m_posX, m_posY);
+}
+
 void CheckerBoard::draw(){
     /*画底盘*/
-    mglSetColor(244.0f/255, 146.0f/255, 111.0f/255, 0);
-    mglDrawRectangle(m_posX, m_posY, 700, 700);
+//    mglSetColor(244.0f/255, 146.0f/255, 111.0f/255, 0);
+//    mglDrawRectangle(m_posX, m_posY, 700, 700);
+    mglDrawGradientRectangleTest(m_posX, m_posY, 700, 700, Color(244,144,111), Color(250,150,120));
     
     mglSetColor(0, 0, 0, 0);/*黑色线条*/
     int size = 700;
@@ -40,6 +45,12 @@ void CheckerBoard::draw(){
     mglFillCircle(m_posX+7*50, m_posY+7*50, 5);
     mglFillCircle(m_posX+3*50, m_posY+11*50, 5);
     mglFillCircle(m_posX+11*50, m_posY+11*50, 5);
+}
+
+bool CheckerBoard::touchBegan(Touch *pTouch, Event *pEvent){
+    TiPoint p = pTouch->getLocationInView();
+    printf("touchBegan:%d %d\n", p.x, p.y);
+    return false;
 }
 
 static Manager *ret = NULL;

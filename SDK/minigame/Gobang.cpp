@@ -15,7 +15,9 @@
 #include "Node.h"
 #include "MainLoop.h"
 #include <math.h>
-#include "Button.h"
+#include "TouchDispatcher.h"
+#include "control.h"
+#include "Texture2D.h"
 
 //static int p1[12][12];/*玩家一棋子布局*/
 //static int p2[12][12];/*玩家二棋子布局*/
@@ -58,9 +60,15 @@ void initGame(){
     registerMainLoop();
     
     /*加载字体库*/
-    parseFontFile("resource/fnt.text");
+    parseFontFile("fnt.text");
     
     /*初始化场景*/
+    /*test*/
+    Texture2D *tex = Texture2D::create(200, 200,  "Icon-72@2x.png");
+    Manager::getInstance()->addNode(tex);
+
+    
+    
     indicate = DrawNode::create(100-25, 100-25);
     indicate->setVisible(false);
     Manager::getInstance()->addNode(indicate);
@@ -75,6 +83,7 @@ void initGame(){
     Manager::getInstance()->addNode(p2);
     
     CheckerBoard *borad = new CheckerBoard;
+    TouchDispatcher::getInstance()->addDelegate(borad);
     borad->setPosition(50, 50);
     Manager::getInstance()->addNode(borad);
     
@@ -91,8 +100,10 @@ void initGame(){
     Manager::getInstance()->addNode(text4_2);
     text4_2->setVisible(true);
     
-    btn = Button::create(0, 0, 200, 100, "123");
-    Manager::getInstance()->addNode(btn);
+    Scene *s = new Scene;
+    Button *button = Button::create(0, 0, 200, 100, s, event_selector(Scene::click));
+    TouchDispatcher::getInstance()->addDelegate(button);
+    Manager::getInstance()->addNode(button);
     
     /*与服务器建立连接*/
     connectServer();
@@ -121,6 +132,11 @@ void drawOtherPiece(int x, int y){
 void mouse(int button, int state, int x, int y){
     if (state == GLUT_DOWN) {
         if (button == GLUT_LEFT_BUTTON) {
+            /*touch dispatcher*/
+            static Touch *pTouch = new Touch();
+            pTouch->setTouchInfo(x, y);
+            TouchDispatcher::getInstance()->touch(pTouch, NULL, TOUCHBEGAN);
+            
             if (!bNext || !gameState) {/*不能走棋,返回不做任何操作*/
                 return;
             }
@@ -157,6 +173,7 @@ void mouse(int button, int state, int x, int y){
                 
                 bNext = false;/*下一步对方走棋*/
             }
+            
         }
     }
     

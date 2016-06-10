@@ -28,8 +28,17 @@
 int main(int argc, const char * argv[]) {
     mglInit(argc, (char**)argv, 800, 800);
     
+    /*添加搜索路径*/
+    FileUtils::getInstance()->addSearchPath("resource");
+    
     initGame();
     
+    
+
+//    if(FileUtils::getInstance()->isFileExist("resource/data")){
+//        printf("OK...\n");
+//    }
+//    printf("%s\n", FileUtils::getInstance()->getFullPathForFilename("data").c_str());
     /*启动循环*/
     mglMainLoop();
     

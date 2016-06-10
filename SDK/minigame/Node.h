@@ -11,16 +11,24 @@
 #define Node_hpp
 
 #include <stdio.h>
+#include "math.h"
+#include "TouchDispatcher.h"
+
+/*pointer to function*/
+typedef void (Object::*SEL_EventHandler)(Event*);
+#define event_selector(_SELECTOR) (SEL_EventHandler)(&_SELECTOR)
+
 class Color{
 public:
-    Color(char r, char g, char b):r(r), g(g), b(b){}
-    char r, g, b;
+    Color(unsigned char r, unsigned char g, unsigned char b):r(r), g(g), b(b){}
+    unsigned char r, g, b;
 };
 
 /*基本节点，用于渲染*/
-class Node{
+class Node : public TouchDelegate{
 public:
     virtual void setPosition(int x, int y);
+    virtual TiPoint getPosition();
     void setVisible(bool visible){m_visible = visible;};
     virtual void draw(){}/*更新渲染*/
     Node *m_next = NULL;
@@ -28,6 +36,8 @@ protected:
     int m_posX;/*左上角位置*/
     int m_posY;
     bool m_visible = true;
+    int m_width;
+    int m_height;
     
     friend class Manager;
 };
@@ -35,6 +45,7 @@ protected:
 /*棋盘*/
 class CheckerBoard : public Node{
 public:
+    virtual bool touchBegan(Touch *pTouch, Event *pEvent);
     virtual void draw();
 private:
 

@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 #include <GLUT/GLUT.h>
+#include "Node.h"
 
 /*3d interface*/
 typedef int MGLenum;
@@ -44,7 +45,7 @@ void mglColor(float r, float g, float b, float a);
 void mglSetColor(float r, float g, float b, float a);
 
 /*draw pixel at cooridate(x, y)*/
-void mglDrawPixel(int x, int y);
+inline void mglDrawPixel(int x, int y);
 
 /*draw line*/
 void mglLineTo(int x, int y);
@@ -57,5 +58,11 @@ void mglFillCircle(int x, int y, int r);
 
 /*draw rectangle*/
 void mglDrawRectangle(int x, int y, int width, int height);/*xy左上角*/
+
+/*
+ *水平渐变
+ *draw rectangle with gradient color
+ */
+void mglDrawGradientRectangleTest(int x, int y, int width, int height, Color s, Color f);/*xy左上角*/
 
 #endif /* mgl_hpp */

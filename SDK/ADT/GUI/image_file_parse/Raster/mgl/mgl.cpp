@@ -10,8 +10,8 @@
 #include <string.h>
 #include <math.h>
 
-static int WIDTH, HEIGHT;
 static GLuint TEX;
+int WIDTH, HEIGHT;
 int *FBO = NULL;
 
 /*初始化mgl，需要在opengl初始化结束后再调用*/
@@ -232,7 +232,28 @@ void mglFillCircle(int x, int y, int r)
 void mglDrawRectangle(int x, int y, int width, int height){
     for(int j=0; j<height; j++){
         for(int i=0; i<width; i++){
-            mglDrawPixel(x+j, y+i);
+            mglDrawPixel(x+i, y+j);
+        }
+    }
+}
+
+void mglDrawGradientRectangleTest(int x, int y, int width, int height, Color s, Color f){
+    /*color = s + t(f-s)*/
+    float t;
+    int color;
+    int r,g,b;
+    int deltaR = f.r - s.r;
+    int deltaG = f.g - s.g;
+    int deltaB = f.b - s.b;
+    int a = 1;
+    for(int j=0; j<height; j++){
+        for(int i=0; i<width; i++){
+            t = i * 1.0f / width;
+            r = s.r + t * deltaR;
+            g = s.g + t * deltaG;
+            b = s.b + t * deltaB;
+            color = r + (g<<8) + (b<<16) + (a<<24);
+            FBO[(j+y)*WIDTH + i+x] = color;
         }
     }
 }

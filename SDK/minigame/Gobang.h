@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 #include "mgl.h"
+#include "Node.h"
 
 /*五子棋对战游戏*/
 
@@ -33,4 +34,9 @@ void handleRev(char *buf);
 
 /*每帧的逻辑处理*/
 void logicHandle(float delta);
+
+class Scene : public Node{
+public:
+    void click(Event *e){printf("123 123 123\n");};
+};
 #endif /* Gobang_hpp */
