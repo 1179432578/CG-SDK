@@ -32,6 +32,8 @@
 		F66C35FD1D07051E00CDF38B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F66C35FC1D07051E00CDF38B /* Foundation.framework */; };
 		F66C76301D05A2A7006307ED /* MainLoop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F66C762E1D05A2A7006307ED /* MainLoop.cpp */; };
 		F66C76331D05A462006307ED /* Node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F66C76311D05A462006307ED /* Node.cpp */; };
+		F66D2AC51D15B0D600EF59EE /* GScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F66D2AC31D15B0D600EF59EE /* GScene.cpp */; };
+		F66D2AC91D15B17C00EF59EE /* GNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F66D2AC71D15B17C00EF59EE /* GNode.cpp */; };
 		F68840E81CD0FFC300304589 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F68840E71CD0FFC300304589 /* OpenGL.framework */; };
 		F68840EA1CD0FFD400304589 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F68840E91CD0FFD400304589 /* GLUT.framework */; };
 		F6ED2B6A1D0ACEF700252092 /* TouchDispatcher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6ED2B681D0ACEF700252092 /* TouchDispatcher.cpp */; };
@@ -106,6 +108,10 @@
 		F66C762F1D05A2A7006307ED /* MainLoop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainLoop.h; path = minigame/MainLoop.h; sourceTree = "<group>"; };
 		F66C76311D05A462006307ED /* Node.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Node.cpp; path = minigame/Node.cpp; sourceTree = "<group>"; };
 		F66C76321D05A462006307ED /* Node.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Node.h; path = minigame/Node.h; sourceTree = "<group>"; };
+		F66D2AC31D15B0D600EF59EE /* GScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GScene.cpp; path = scene/GScene.cpp; sourceTree = "<group>"; };
+		F66D2AC41D15B0D600EF59EE /* GScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GScene.h; path = scene/GScene.h; sourceTree = "<group>"; };
+		F66D2AC71D15B17C00EF59EE /* GNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GNode.cpp; path = node/GNode.cpp; sourceTree = "<group>"; };
+		F66D2AC81D15B17C00EF59EE /* GNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GNode.h; path = node/GNode.h; sourceTree = "<group>"; };
 		F68840E71CD0FFC300304589 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		F68840E91CD0FFD400304589 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
 		F6E343E21CC68ABD0078E638 /* CG */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CG; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -183,7 +189,7 @@
 			path = ADT;
 			sourceTree = "<group>";
 		};
-		F65E779F1CFB3D1E00B2F7AA /* GUI */ = {
+		F65E779F1CFB3D1E00B2F7AA /* gui */ = {
 			isa = PBXGroup;
 			children = (
 				F65E77A01CFB3D1E00B2F7AA /* Draw.cpp */,
@@ -191,18 +197,18 @@
 				F65E77A21CFB3D1E00B2F7AA /* Window.cpp */,
 				F65E77A31CFB3D1E00B2F7AA /* Window.h */,
 			);
-			name = GUI;
+			name = gui;
 			path = ADT/GUI;
 			sourceTree = "<group>";
 		};
-		F65E77A61CFB3D2A00B2F7AA /* image_file_parse */ = {
+		F65E77A61CFB3D2A00B2F7AA /* fileparse */ = {
 			isa = PBXGroup;
 			children = (
 				F65E77A71CFB3D2A00B2F7AA /* LBitmap.cpp */,
 				F65E77A81CFB3D2A00B2F7AA /* LBitmap.h */,
 				F65E77A91CFB3D2A00B2F7AA /* psd */,
 			);
-			name = image_file_parse;
+			name = fileparse;
 			path = ADT/GUI/image_file_parse;
 			sourceTree = "<group>";
 		};
@@ -224,7 +230,7 @@
 			path = psd;
 			sourceTree = "<group>";
 		};
-		F65E77BB1CFB3D3900B2F7AA /* Raster */ = {
+		F65E77BB1CFB3D3900B2F7AA /* math */ = {
 			isa = PBXGroup;
 			children = (
 				F65E77BC1CFB3D3900B2F7AA /* Matrix.cpp */,
@@ -238,17 +244,35 @@
 				F65E77C61CFB3D3900B2F7AA /* Vector3.cpp */,
 				F65E77C71CFB3D3900B2F7AA /* Vector3.h */,
 			);
-			name = Raster;
+			name = math;
 			path = ADT/GUI/image_file_parse/Raster;
 			sourceTree = "<group>";
 		};
-		F66C35F81D07001400CDF38B /* file_utils */ = {
+		F66C35F81D07001400CDF38B /* fileutils */ = {
 			isa = PBXGroup;
 			children = (
 				F66C35F91D07009500CDF38B /* FileUtils.mm */,
 				F66C35FA1D07009500CDF38B /* FileUtils.h */,
 			);
-			name = file_utils;
+			name = fileutils;
+			sourceTree = "<group>";
+		};
+		F66D2AC21D15B09A00EF59EE /* scene */ = {
+			isa = PBXGroup;
+			children = (
+				F66D2AC31D15B0D600EF59EE /* GScene.cpp */,
+				F66D2AC41D15B0D600EF59EE /* GScene.h */,
+			);
+			name = scene;
+			sourceTree = "<group>";
+		};
+		F66D2AC61D15B14800EF59EE /* node */ = {
+			isa = PBXGroup;
+			children = (
+				F66D2AC71D15B17C00EF59EE /* GNode.cpp */,
+				F66D2AC81D15B17C00EF59EE /* GNode.h */,
+			);
+			name = node;
 			sourceTree = "<group>";
 		};
 		F68840EF1CD10C0A00304589 /* frameworks */ = {
@@ -265,15 +289,17 @@
 		F6E343D91CC68ABD0078E638 = {
 			isa = PBXGroup;
 			children = (
+				F66D2AC61D15B14800EF59EE /* node */,
+				F66D2AC21D15B09A00EF59EE /* scene */,
+				F68840EF1CD10C0A00304589 /* frameworks */,
 				F6ED2B721D0B154300252092 /* texture */,
-				F66C35F81D07001400CDF38B /* file_utils */,
+				F66C35F81D07001400CDF38B /* fileutils */,
 				F65826CC1D03E035008B53DE /* mgl */,
 				F65826D01D04513A008B53DE /* minigame */,
-				F68840EF1CD10C0A00304589 /* frameworks */,
 				F65E77951CFB3D1400B2F7AA /* datastructure */,
-				F65E779F1CFB3D1E00B2F7AA /* GUI */,
-				F65E77A61CFB3D2A00B2F7AA /* image_file_parse */,
-				F65E77BB1CFB3D3900B2F7AA /* Raster */,
+				F65E779F1CFB3D1E00B2F7AA /* gui */,
+				F65E77A61CFB3D2A00B2F7AA /* fileparse */,
+				F65E77BB1CFB3D3900B2F7AA /* math */,
 				F65E77CE1CFB3D4800B2F7AA /* main.cpp */,
 				F6E343E31CC68ABD0078E638 /* Products */,
 				F6ED2B781D0B23FB00252092 /* resource */,
@@ -376,12 +402,14 @@
 				F65E77A51CFB3D1E00B2F7AA /* Window.cpp in Sources */,
 				F65826CF1D03E05A008B53DE /* mgl.cpp in Sources */,
 				F65E77CD1CFB3D3900B2F7AA /* Vector3.cpp in Sources */,
+				F66D2AC91D15B17C00EF59EE /* GNode.cpp in Sources */,
 				F65E77CC1CFB3D3900B2F7AA /* ray_polygon_intersection.cpp in Sources */,
 				F65E779C1CFB3D1400B2F7AA /* CCDictionary.cpp in Sources */,
 				F65E77B81CFB3D2A00B2F7AA /* ImageResourcesSection.cpp in Sources */,
 				F65E77B71CFB3D2A00B2F7AA /* FileHeaderSection.cpp in Sources */,
 				F66C35FB1D07009500CDF38B /* FileUtils.mm in Sources */,
 				F65826D31D04518E008B53DE /* Gobang.cpp in Sources */,
+				F66D2AC51D15B0D600EF59EE /* GScene.cpp in Sources */,
 				F65826D61D047BA8008B53DE /* text.cpp in Sources */,
 				F65E779E1CFB3D1400B2F7AA /* MutableData.cpp in Sources */,
 				F66C76301D05A2A7006307ED /* MainLoop.cpp in Sources */,
